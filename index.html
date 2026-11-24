@@ -759,6 +759,23 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
 .bk-body .btn{align-self:flex-start;margin-top:auto}
 .bk-soon{background:linear-gradient(135deg,var(--surface),var(--forest-soft))}
 
+
+/* Nature gallery */
+.nature{border:1px solid var(--line);border-radius:14px;background:var(--surface);overflow:hidden;border-bottom:4px solid var(--gold-bright)}
+.nature-head{padding:var(--s6) var(--s6) var(--s4);background:linear-gradient(120deg,#0f3d2c,#1d5c45 55%,var(--navy-2));color:#fff;display:flex;flex-direction:column;gap:var(--s2)}
+.nature-head .eyebrow{color:var(--gold-bright)}
+.nature-head h2{color:#fff;font-weight:700}
+.nature-head p{color:rgba(236,246,240,.85);max-width:none}
+.nature-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:6px}
+.nature-grid button{all:unset;cursor:zoom-in;position:relative;overflow:hidden;border-radius:8px;height:460px;background:var(--line)}
+.nature-grid button:focus-visible{outline:3px solid var(--gold-bright);outline-offset:-3px}
+.nature-grid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.nature-grid button:nth-child(1) img,.nature-grid button:nth-child(2) img{object-position:50% 55%}
+.nature-grid button:nth-child(4) img{object-position:50% 30%}
+.nature-grid button:hover img{transform:scale(1.04)}
+.nature-grid .cap{position:absolute;left:8px;bottom:8px;max-width:calc(100% - 16px);background:rgba(15,61,44,.88);color:#fff;font-size:.75rem;padding:4px 10px;border-radius:999px}
+.hob-link{font-size:.85rem;margin-top:auto}
+
 @media (max-width: 960px){
   .shell{grid-template-columns:1fr}
   .rail{position:sticky;top:0;height:auto;z-index:10;flex-direction:row;flex-wrap:wrap;align-items:center;padding:var(--s3) var(--s4);gap:var(--s3);border-right:0;border-bottom:1px solid var(--line)}
@@ -794,6 +811,9 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
   .metrics-pair{grid-template-columns:1fr}
   .cv-stats{grid-template-columns:1fr 1fr}
   .bk-grid{grid-template-columns:1fr}
+  .nature-grid{grid-template-columns:1fr 1fr}
+  .nature-grid button{height:340px}
+  .nature-head{padding:var(--s5) var(--s4) var(--s4)}
   .book-feature{grid-template-columns:1fr;gap:var(--s5);padding:var(--s6) var(--s5)}
   .book-cover{max-width:240px;transform:none}
   .proj.has-img{grid-column:auto}
@@ -1675,8 +1695,21 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
       <article class="hobby"><span class="hic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><h3>Travel & cultures</h3><p>Having lived and worked in ten countries across Africa, Asia and Australia, he enjoys meeting new people and learning about other cultures.</p></article>
       <article class="hobby"><span class="hic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="7" r="3"/><circle cx="17" cy="8" r="2.5"/><path d="M2 20a6 6 0 0 1 12 0M14 20a4.5 4.5 0 0 1 8 0"/></svg></span><h3>Mentoring & community</h3><p>Mentoring students and young researchers, and a member of the Nepal Red Cross Society within the Red Cross and Red Crescent Movement.</p></article>
       <article class="hobby"><span class="hic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg></span><h3>Movies</h3><p>Unwinding with a good film, from documentaries to drama.</p></article>
-      <article class="hobby"><span class="hic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 6-14 15-15-1 9-7 15-15 15z"/><path d="M5 19 13 11"/></svg></span><h3>Nature</h3><p>Time outdoors, walking and enjoying the natural landscapes of Sierra Leone and Queensland.</p></article>
+      <article class="hobby"><span class="hic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 6-14 15-15-1 9-7 15-15 15z"/><path d="M5 19 13 11"/></svg></span><h3>Nature</h3><p>Time outdoors among wildlife and green spaces, from Sierra Leone to Australia, where feeding kangaroos and wild parrots is a favourite way to unwind.</p><a class="hob-link" href="#nature" data-scrollto="nature">See photos ↓</a></article>
     </div>
+    <article class="nature" id="nature" aria-labelledby="h-nature">
+      <div class="nature-head">
+        <span class="eyebrow">Hobbies · Nature</span>
+        <h2 id="h-nature">Close to Nature</h2>
+        <p>Away from the lab, Dr Aajay enjoys getting close to Australia's wildlife: hand-feeding eastern grey kangaroos among the palms, and wild crimson rosellas and king parrots that land on his hand and shoulder for seed.</p>
+      </div>
+      <div class="nature-grid" id="natureGallery">
+        <button data-i="0" aria-label="View photo: feeding kangaroos"><img src="img/nature-kangaroo-1-sm.jpg" alt="Dr Aajay feeding three kangaroos among tall palm trees" loading="lazy"><span class="cap">Feeding kangaroos</span></button>
+        <button data-i="1" aria-label="View photo: among the kangaroos"><img src="img/nature-kangaroo-2-sm.jpg" alt="Dr Aajay smiling while kangaroos gather to be fed" loading="lazy"><span class="cap">Among the kangaroos</span></button>
+        <button data-i="2" aria-label="View photo: crimson rosella and king parrot"><img src="img/nature-parrot-1-sm.jpg" alt="A crimson rosella perched on Dr Aajay's shoulder beside a king parrot on a seed bowl" loading="lazy"><span class="cap">A crimson rosella on his shoulder</span></button>
+        <button data-i="3" aria-label="View photo: rosella feeding from his hand"><img src="img/nature-parrot-2-sm.jpg" alt="A crimson rosella feeding from Dr Aajay's hand" loading="lazy"><span class="cap">Feeding a wild rosella</span></button>
+      </div>
+    </article>
   </section>
 
   <!-- CRID-SL -->
@@ -2984,6 +3017,12 @@ const HDR = [
 ];
 const DJI = [{src:"img/dji-shenzhen.jpg", alt:"DJI project team in Shenzhen, China", cap:"DJI drone programming project · Shenzhen, China, 2019"}];
 const BOOK = [{src:"img/chaos-of-reason.jpg", alt:"Cover of The Chaos of Reason", cap:"The Chaos of Reason · forthcoming from Generis Publishing"}];
+const NATURE = [
+  {src:"img/nature-kangaroo-1.jpg", alt:"Feeding kangaroos", cap:"Feeding kangaroos"},
+  {src:"img/nature-kangaroo-2.jpg", alt:"Among the kangaroos", cap:"Among the kangaroos"},
+  {src:"img/nature-parrot-1.jpg", alt:"Crimson rosella and king parrot", cap:"A crimson rosella on his shoulder, with a king parrot"},
+  {src:"img/nature-parrot-2.jpg", alt:"Feeding a wild rosella", cap:"Feeding a wild crimson rosella"}
+];
 const AFG = [{src:"img/afghanistan.jpg", alt:"Dr Aajay on mission in Afghanistan", cap:"On mission in Afghanistan during the COVID-19 response · 2021"}];
 let lbI = 0, LB = PHOTOS;
 function lbShow(i){ lbI=(i+LB.length)%LB.length; const p=LB[lbI]; const d=$("#lightbox"); d.classList.remove("zoomed"); d.classList.toggle("zoomable", !!p.zoom); $("#lbScroll").scrollTo(0,0); $("#lbImg").src=p.src; $("#lbImg").alt=p.alt; $("#lbCap").textContent=`${p.cap} · ${lbI+1} of ${LB.length}`; }
@@ -2992,6 +3031,7 @@ $("#teachGallery").addEventListener("click", e=>{ const b=e.target.closest("butt
 $("#emerging-ai").addEventListener("click", e=>{ const b=e.target.closest("button[data-i]"); if(!b) return; LB=HDR; lbShow(+b.dataset.i); $("#lightbox").showModal(); });
 $("#fieldGallery2").addEventListener("click", e=>{ const b=e.target.closest("button"); if(!b) return; LB=FIELD; lbShow(+b.dataset.i); $("#lightbox").showModal(); });
 $("#chaos-of-reason").addEventListener("click", e=>{ if(!e.target.closest("[data-photo='book']")) return; LB=BOOK; lbShow(0); $("#lightbox").showModal(); });
+$("#natureGallery").addEventListener("click", e=>{ const b=e.target.closest("button"); if(!b) return; LB=NATURE; lbShow(+b.dataset.i); $("#lightbox").showModal(); });
 $("#projGrid").addEventListener("click", e=>{ const b=e.target.closest("[data-photo]"); if(!b) return; LB = b.dataset.photo==="afg" ? AFG : DJI; lbShow(0); $("#lightbox").showModal(); });
 $("#fieldGallery").addEventListener("click", e=>{ const b=e.target.closest("button"); if(!b) return; LB=FIELD; lbShow(+b.dataset.i); $("#lightbox").showModal(); });
 document.addEventListener("click", e=>{ const a=e.target.closest("[data-scrollto]"); if(!a) return; e.preventDefault(); document.getElementById(a.dataset.scrollto).scrollIntoView({behavior:reduced?"auto":"smooth"}); });
