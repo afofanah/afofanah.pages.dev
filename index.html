@@ -850,7 +850,43 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
 .s2-add[aria-pressed="true"]{background:var(--gold-bright);border-color:var(--gold-bright);color:var(--navy-2)}
 .s2-plus{font-weight:700}
 
+
+/* CRID-SL flow + track record */
+.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4);position:relative;counter-reset:none}
+.flow::before{content:"";position:absolute;left:12%;right:12%;top:34px;height:2px;background:repeating-linear-gradient(90deg,var(--gold-bright) 0 8px,transparent 8px 14px);z-index:0}
+.fstep{position:relative;z-index:1;display:flex;flex-direction:column;gap:6px;border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:var(--s5);padding-top:0;margin-top:34px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.fstep:hover{transform:translateY(-3px);box-shadow:0 18px 36px -24px rgba(11,31,99,.5);border-color:var(--gold-bright)}
+.f-badge{position:relative;width:68px;height:68px;margin:-34px 0 var(--s2);border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,var(--navy-1),var(--navy-2));color:var(--gold-bright);box-shadow:0 0 0 6px var(--paper)}
+.f-ic svg{width:28px;height:28px}
+.f-n{position:absolute;right:-6px;top:-4px;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:var(--gold-bright);color:var(--navy-2);font:700 .72rem var(--font-mono)}
+.f-when{font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--gold)}
+.fstep h3{font-size:1.25rem}
+.fstep p{font-size:.9rem;color:var(--muted)}
+.f-out{margin-top:auto;padding-top:var(--s3);border-top:1px dashed var(--line);font-size:.86rem;font-weight:500}
+.f-out b{display:block;font-family:var(--font-mono);font-size:.66rem;font-weight:400;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.tr-head{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--s5);flex-wrap:wrap}
+.tr-head > div:first-child{display:flex;flex-direction:column;gap:var(--s3);flex:1;min-width:300px}
+.tr-head .lede{max-width:none}
+.tr-sum{display:flex;gap:8px}
+.tr-sum div{border-radius:10px;background:linear-gradient(135deg,var(--navy-1),var(--navy-2));color:#fff;padding:10px 14px;min-width:110px}
+.tr-sum b{display:block;font-family:var(--font-display);font-size:1.8rem;line-height:1;color:var(--gold-bright)}
+.tr-sum span{font-size:.75rem;color:var(--on-navy-muted)}
+.track2{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
+.tr{display:flex;flex-direction:column;gap:8px;border:1px solid var(--line);border-left:4px solid var(--c);border-radius:12px;background:var(--surface);padding:var(--s5);transition:transform .2s,box-shadow .2s}
+.tr:hover{transform:translateY(-3px);box-shadow:0 18px 36px -24px rgba(11,31,99,.5)}
+.tr[hidden]{display:none}
+.tr[data-cat="infra"]{--c:var(--teal)}.tr[data-cat="gov"]{--c:var(--cobalt)}.tr[data-cat="hum"]{--c:var(--gold-bright)}
+.tr-top{display:flex;align-items:center;gap:10px}
+.tr-ic{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:var(--forest-soft);color:var(--forest)}
+.tr-ic svg{width:22px;height:22px}
+.tr-cat{font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.tr h3{font-size:1.18rem}
+.tr p{font-size:.9rem;color:var(--muted)}
+.tr-meta{margin-top:auto;padding-top:var(--s2);font-size:.8rem;font-weight:500;color:var(--forest)}
+
 @media (max-width: 960px){
+  .flow,.track2{grid-template-columns:1fr 1fr}
+  .flow::before{display:none}
   .shell{grid-template-columns:1fr}
   .rail{position:sticky;top:0;height:auto;z-index:10;flex-direction:row;flex-wrap:wrap;align-items:center;padding:var(--s3) var(--s4);gap:var(--s3);border-right:0;border-bottom:1px solid var(--line)}
   .monogram{width:40px;height:40px;font-size:1rem}
@@ -922,6 +958,9 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
   .step:nth-child(-n+2){border-bottom:1px solid var(--line)}
 }
 @media (max-width: 560px){
+  .flow,.track2{grid-template-columns:1fr}
+  .tr-sum{width:100%}
+  .tr-sum div{flex:1;min-width:0}
   .svc-grid{grid-template-columns:1fr}
   .svc-cart{border-radius:12px;flex-wrap:wrap}
   main{padding-top:var(--s5)}
@@ -1814,11 +1853,11 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
       </div>
     </div>
 
-    <div class="crid-stats" aria-label="CRID-SL at a glance">
-      <div><b>6</b><span>Service areas</span></div>
-      <div><b>8</b><span>Countries of field experience</span></div>
-      <div><b>12+</b><span>Years in research and practice</span></div>
-      <div><b>2010</b><span>Teaching at university level since</span></div>
+    <div class="cv-stats" aria-label="CRID-SL at a glance">
+      <div class="cvs"><span class="cvs-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><b><span class="cvs-n" data-to="6">6</span><small>service areas</small></b><span class="cvs-l">from research design to deployed systems</span><span class="cvs-d">Research · AI · Data · Systems · Training · Health</span></div>
+      <div class="cvs"><span class="cvs-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><b><span class="cvs-n" data-to="8">8</span><small>countries</small></b><span class="cvs-l">of field experience</span><span class="cvs-d">Sierra Leone · Liberia · Guinea · Kenya · Nepal · Afghanistan · Thailand · Myanmar</span></div>
+      <div class="cvs"><span class="cvs-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><b><span class="cvs-n" data-to="12+">12+</span><small>years</small></b><span class="cvs-l">in research and practice</span><span class="cvs-d">Academia, UN humanitarian data and consultancy</span></div>
+      <div class="cvs"><span class="cvs-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M7 8h6M7 11h10M12 16v4M8 20h8"/></svg></span><b><span class="cvs-n">2010</span><small>since</small></b><span class="cvs-l">teaching at university level</span><span class="cvs-d">Training built in to every engagement</span></div>
     </div>
 
     <div class="svc-head">
@@ -1835,25 +1874,25 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
       <span class="eyebrow">How we work</span>
       <h2>From question to handover</h2>
     </div>
-    <div class="process">
-      <div class="step"><h3>Scope</h3><p>A short discovery call and a written brief that fixes the question, data, constraints and what success looks like.</p></div>
-      <div class="step"><h3>Design</h3><p>Methodology, architecture or curriculum, with ethics, data protection and a costed workplan agreed before work starts.</p></div>
-      <div class="step"><h3>Deliver</h3><p>Iterative delivery with checkpoints, reproducible code and analysis, and plain-language reporting for decision makers.</p></div>
-      <div class="step"><h3>Transfer</h3><p>Documentation, training of trainers and support so your team owns and runs the result.</p></div>
-    </div>
+    <ol class="flow" aria-label="How CRID-SL works">
+      <li class="fstep"><div class="f-badge"><span class="f-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-5-5"/></svg></span><span class="f-n">01</span></div><span class="f-when">Getting started</span><h3>Scope</h3><p>A short discovery call and a written brief that fixes the question, data, constraints and what success looks like.</p><span class="f-out"><b>You get</b>Project brief</span></li>
+      <li class="fstep"><div class="f-badge"><span class="f-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h4L20 8l-4-4L3 17z"/><path d="m14 6 4 4"/></svg></span><span class="f-n">02</span></div><span class="f-when">Before work begins</span><h3>Design</h3><p>Methodology, architecture or curriculum, with ethics, data protection and a costed workplan agreed before work starts.</p><span class="f-out"><b>You get</b>Costed workplan</span></li>
+      <li class="fstep"><div class="f-badge"><span class="f-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h12M12 6l6 6-6 6"/></svg></span><span class="f-n">03</span></div><span class="f-when">Throughout</span><h3>Deliver</h3><p>Iterative delivery with checkpoints, reproducible code and analysis, and plain-language reporting for decision makers.</p><span class="f-out"><b>You get</b>Working outputs & reports</span></li>
+      <li class="fstep"><div class="f-badge"><span class="f-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 11V7a5 5 0 0 1 10 0"/><rect x="4" y="11" width="16" height="10" rx="2"/><circle cx="12" cy="16" r="1.5"/></svg></span><span class="f-n">04</span></div><span class="f-when">At handover</span><h3>Transfer</h3><p>Documentation, training of trainers and support so your team owns and runs the result.</p><span class="f-out"><b>You get</b>Docs, training & support</span></li>
+    </ol>
 
-    <div class="section-head">
-      <span class="eyebrow">Track record</span>
-      <h2>Selected work by the principal consultant</h2>
-      <p class="lede">Delivered by Dr Abdul Joseph Fofanah (Dr Aajay) through his independent IT consultancy (2015–2023) and in data leadership roles with the UN Migration Agency.</p>
+    <div class="tr-head">
+      <div><span class="eyebrow">Track record</span><h2>Selected Work by the Principal Consultant</h2><p class="lede">Delivered by Dr Abdul Joseph Fofanah (Dr Aajay) through his independent IT consultancy (2015–2023) and in data leadership roles with the UN Migration Agency.</p></div>
+      <div class="tr-sum"><div><b>2</b><span>bank data centres</span></div><div><b>1</b><span>national licensing system</span></div><div><b>2</b><span>service awards (IOM &amp; Nepal MoH)</span></div></div>
     </div>
-    <div class="track">
-      <div class="card"><span class="k">Banking infrastructure</span><b>Primary data centre, Skye Bank</b><p style="font-size:.9rem;color:var(--muted)">Planning, procurement, networking and security for the bank's primary data centre.</p></div>
-      <div class="card"><span class="k">Banking infrastructure</span><b>Secondary data centre, Access Bank (SL)</b><p style="font-size:.9rem;color:var(--muted)">Design and build of a secondary site for continuity and recovery.</p></div>
-      <div class="card"><span class="k">National systems</span><b>Automated Vehicle &amp; Driver Licence System</b><p style="font-size:.9rem;color:var(--muted)">Led design and development of a fully digitalised national licensing platform for Sierra Leone.</p></div>
-      <div class="card"><span class="k">Public sector web</span><b>UNICEF &amp; Government ministries</b><p style="font-size:.9rem;color:var(--muted)">Institutional websites developed and deployed for UNICEF and Government of Sierra Leone ministries.</p></div>
-      <div class="card"><span class="k">Humanitarian data</span><b>Ebola response data systems</b><p style="font-size:.9rem;color:var(--muted)">Led HBMM databases across Sierra Leone, Liberia and Guinea; recognised with the IOM Excellence Award (2017).</p></div>
-      <div class="card"><span class="k">Public health</span><b>COVID-19 mobility risk mapping</b><p style="font-size:.9rem;color:var(--muted)">Lead author of two IOM Nepal technical reports on population mobility and public health risk.</p></div>
+    <div class="seg" id="trSeg" role="group" aria-label="Filter track record"><button data-cat="all" aria-pressed="true">All</button><button data-cat="infra" aria-pressed="false">Infrastructure</button><button data-cat="gov" aria-pressed="false">Government &amp; public sector</button><button data-cat="hum" aria-pressed="false">Humanitarian &amp; health</button></div>
+    <div class="track2" id="trGrid">
+      <article class="tr" data-cat="infra"><div class="tr-top"><span class="tr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="1.5"/><rect x="3" y="14" width="18" height="7" rx="1.5"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span><span class="tr-cat">Banking infrastructure</span></div><h3>Primary data centre, Skye Bank</h3><p>Planning, procurement, networking and security for the bank's primary data centre.</p><span class="tr-meta">2015–2023 · Freetown</span></article>
+      <article class="tr" data-cat="infra"><div class="tr-top"><span class="tr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="7" rx="1.5"/><rect x="3" y="14" width="18" height="7" rx="1.5"/><path d="M7 6.5h.01M7 17.5h.01"/></svg></span><span class="tr-cat">Banking infrastructure</span></div><h3>Secondary data centre, Access Bank (SL)</h3><p>Design and build of a secondary site for business continuity and disaster recovery.</p><span class="tr-meta">2015–2023 · Freetown</span></article>
+      <article class="tr" data-cat="gov"><div class="tr-top"><span class="tr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><circle cx="9" cy="12.5" r="2"/><path d="M14 11h4M14 14h3"/></svg></span><span class="tr-cat">National systems</span></div><h3>Automated Vehicle &amp; Driver Licence System</h3><p>Led design and development of a fully digitalised national licensing platform for Sierra Leone.</p><span class="tr-meta">2015–2023 · Sierra Leone</span></article>
+      <article class="tr" data-cat="gov"><div class="tr-top"><span class="tr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><span class="tr-cat">Public sector web</span></div><h3>UNICEF &amp; Government ministries</h3><p>Institutional websites developed and deployed for UNICEF and Government of Sierra Leone ministries.</p><span class="tr-meta">2015–2023 · Sierra Leone</span></article>
+      <article class="tr" data-cat="hum"><div class="tr-top"><span class="tr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg></span><span class="tr-cat">Humanitarian data</span></div><h3>Ebola response data systems</h3><p>Led HBMM databases across Sierra Leone, Liberia and Guinea during the Ebola response.</p><span class="tr-meta">2015–2018 · IOM Excellence Award 2017</span></article>
+      <article class="tr" data-cat="hum"><div class="tr-top"><span class="tr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><span class="tr-cat">Public health</span></div><h3>COVID-19 mobility risk mapping</h3><p>Lead author of two IOM Nepal technical reports on population mobility and public health risk.</p><span class="tr-meta">2020–2022 · Nepal · Ministry of Health award 2021</span></article>
     </div>
 
     <div class="two">
@@ -2335,6 +2374,8 @@ renderPubs();
 /* Course filter */
 $("#courseSeg").addEventListener("click", e=>{ const b=e.target.closest("button"); if(!b) return; $$("#courseSeg button").forEach(x=>x.setAttribute("aria-pressed",String(x===b))); const v=b.dataset.inst;
   $$("#teaching-courses .cgroup").forEach(g=>{ let n=0; g.querySelectorAll("li").forEach(li=>{ const show=v==="all"||li.dataset.inst===v; li.hidden=!show; if(show) n++; }); g.hidden=n===0; g.querySelector(".cg-n").textContent=n; }); });
+/* Track record filter */
+$("#trSeg").addEventListener("click", e=>{ const b=e.target.closest("button"); if(!b) return; $$("#trSeg button").forEach(x=>x.setAttribute("aria-pressed",String(x===b))); $$("#trGrid .tr").forEach(c=>c.hidden=!(b.dataset.cat==="all"||c.dataset.cat===b.dataset.cat)); });
 /* Cite dialog */
 let citeP = null, citeFmt = "apa";
 function citeString(p, fmt){
