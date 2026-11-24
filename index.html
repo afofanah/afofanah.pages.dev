@@ -952,6 +952,13 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
 .pquote figcaption b{display:block;font-size:.95rem;color:#fff}
 .pquote figcaption span{font-size:.82rem;color:var(--on-navy-muted)}
 
+
+/* Hero quote */
+.hquote{position:relative;margin:var(--s2) 0 0;padding:var(--s4) var(--s5) var(--s4) var(--s7);border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14)}
+.hquote::before{content:"\201C";position:absolute;left:14px;top:-6px;font-family:var(--font-display);font-size:4.6rem;line-height:1;color:var(--gold-bright)}
+.hquote blockquote{margin:0}
+.hquote p{font-family:var(--font-display);font-style:italic;font-size:clamp(1.05rem,1.6vw,1.25rem);line-height:1.55;color:#fff;text-align:left!important;hyphens:manual!important}
+
 @media (max-width: 960px){
   .ways{grid-template-columns:1fr 1fr}
   .reach{grid-template-columns:1fr}
@@ -1029,6 +1036,8 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
   .step:nth-child(-n+2){border-bottom:1px solid var(--line)}
 }
 @media (max-width: 560px){
+  .hquote{padding:var(--s4) var(--s4) var(--s4) var(--s6)}
+  .hquote::before{font-size:3.6rem;left:8px}
   .pquote{padding:var(--s7) var(--s4) var(--s5)}
   .pq-mark{font-size:6rem;left:var(--s3)}
   .ways{grid-template-columns:1fr}
@@ -1134,6 +1143,9 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
         <span class="eyebrow">AI researcher · University educator · Founder, CRID-SL</span>
         <h1 id="h-home">Dr Abdul Joseph Fofanah</h1>
         <span class="aka">Known as <b>Dr Aajay</b> · Two PhDs: Griffith University &amp; Northcentral University · AFHEA</span>
+        <figure class="hquote" aria-label="Quotation">
+          <blockquote><p>I approach complex systems from first principles. Whether modeling chaotic spatio-temporal dynamics or designing optimal transport frameworks, true innovation lies at the intersection of mathematical theory and deployable AI.</p></blockquote>
+        </figure>
         <p class="tagline">Graph learning and Transformer models for data that changes over time.</p>
         <p class="lede">Dr Aajay is an AI and deep learning researcher and university educator with more than 12 years across academic research, software engineering and humanitarian data management in six countries. He designs graph neural networks, attention and Transformer models for relational, evolving data: conversations, networks, traffic, patients and populations.</p>
         <p class="lede">His research spans graph anomaly detection for cybersecurity, spatiotemporal traffic forecasting, medical image analysis and epidemic forecasting. He has published 16+ peer-reviewed journal articles, 12 as first author, in venues including <em>IEEE TNNLS</em>, <em>Information Fusion</em>, <em>IEEE Transactions on Cybernetics</em> and <em>The BMJ</em>. Before his doctorate he spent eight years with the UN Migration Agency (IOM), leading data management for the Ebola and COVID-19 responses. Through CRID-SL, he brings research-grade methods to governments, universities and organisations in Sierra Leone and beyond.</p>
@@ -1228,11 +1240,6 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
         <div class="gnn-step" data-step="3"><span class="n">4</span><div><b>Inform</b><span>Combine with patient data in a trustworthy report.</span></div></div>
       </div>
     </section>
-    <figure class="pquote" aria-label="Quotation">
-      <span class="pq-mark" aria-hidden="true">&ldquo;</span>
-      <blockquote><p>I approach complex systems from first principles. Whether modeling chaotic spatio-temporal dynamics or designing optimal transport frameworks, true innovation lies at the intersection of mathematical theory and deployable AI.</p></blockquote>
-      <figcaption><img src="img/ajf-160.jpg" alt="" width="44" height="44"><span><b>Dr Abdul Joseph Fofanah</b>Dr Aajay · AI researcher and founder of CRID-SL</span></figcaption>
-    </figure>
     <div class="venues">
       <span class="eyebrow">Published in</span>
       <div class="venue-row">
