@@ -742,6 +742,23 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
 .cvs-l{font-size:.95rem;font-weight:500;color:var(--ink);margin-top:6px}
 .cvs-d{font-size:.8rem;color:var(--muted);padding-top:8px;margin-top:auto;border-top:1px dashed var(--line)}
 
+
+/* Books */
+.bk-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--s5)}
+.bk{display:grid;grid-template-columns:150px 1fr;gap:var(--s5);border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:var(--s5);transition:border-color .2s,box-shadow .2s}
+.bk:hover{border-color:var(--gold-bright);box-shadow:0 16px 32px -22px rgba(11,31,99,.45)}
+.bk-cover{display:block;align-self:start;border-radius:3px 6px 6px 3px;overflow:hidden;box-shadow:-6px 10px 22px -10px rgba(0,0,0,.55),0 0 0 1px rgba(0,0,0,.06);transform:perspective(700px) rotateY(6deg);transition:transform .35s}
+.bk:hover .bk-cover{transform:perspective(700px) rotateY(0)}
+.bk-cover img{display:block;width:100%;height:auto}
+.bk-body{display:flex;flex-direction:column;gap:6px;min-width:0}
+.bk-tag{font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--gold)}
+.bk h3{font-size:1.25rem;line-height:1.25}
+.bk .bk-sub{font-family:var(--font-display);font-style:italic;color:var(--forest);font-size:.98rem;text-align:left!important}
+.bk .bk-meta{font-size:.8rem;color:var(--muted);text-align:left!important}
+.bk-body p:not(.bk-sub):not(.bk-meta){font-size:.88rem;color:var(--muted)}
+.bk-body .btn{align-self:flex-start;margin-top:auto}
+.bk-soon{background:linear-gradient(135deg,var(--surface),var(--forest-soft))}
+
 @media (max-width: 960px){
   .shell{grid-template-columns:1fr}
   .rail{position:sticky;top:0;height:auto;z-index:10;flex-direction:row;flex-wrap:wrap;align-items:center;padding:var(--s3) var(--s4);gap:var(--s3);border-right:0;border-bottom:1px solid var(--line)}
@@ -770,11 +787,13 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
   .pstats{grid-template-columns:1fr 1fr}
   .cvs{padding:var(--s4)}
   .cvs .cvs-n{font-size:2.2rem}
+  .bk{grid-template-columns:100px 1fr;gap:var(--s4);padding:var(--s4)}
   .cvs b{flex-wrap:wrap;row-gap:2px}
   .cvs small{font-size:.68rem;letter-spacing:.04em}
   .seminar-top{grid-template-columns:1fr}
   .metrics-pair{grid-template-columns:1fr}
   .cv-stats{grid-template-columns:1fr 1fr}
+  .bk-grid{grid-template-columns:1fr}
   .book-feature{grid-template-columns:1fr;gap:var(--s5);padding:var(--s6) var(--s5)}
   .book-cover{max-width:240px;transform:none}
   .proj.has-img{grid-column:auto}
@@ -1200,6 +1219,57 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
         <p class="cur-title">TAPOT: Text-Anchored Partial Optimal Transport for Spatio-Temporal Cross-City Traffic Forecasting with Future-Aware Transfer</p>
         <p>Aligns a data-rich source city with a new target city through partial optimal transport anchored by text descriptions, transferring only the knowledge that fits and looking ahead to future conditions when forecasting.</p>
         <div class="outputs"><span class="chip forest">Transport & mobility</span><span class="chip forest">Cross-city transfer</span></div>
+      </article>
+    </div>
+    <div class="section-head" id="books">
+      <span class="eyebrow">Books</span>
+      <h2>Published Books</h2>
+      <p class="lede">Textbooks and guides on research methodology, database technologies and machine learning, written for students, educators and practitioners. A fifth, <em>Watermarking Technology using Frequency Domain and Genetic Programming</em> (ISBN 978-6202671859), grew out of his master's research on medical image protection.</p>
+    </div>
+    <div class="bk-grid">
+      <article class="bk">
+        <a class="bk-cover" href="https://www.amazon.com.au/dp/B0CZ8S4TPD" aria-label="View Thematic Guidelines for Research Methodology on Amazon"><img src="img/book-thematic.jpg" alt="Cover of Thematic Guidelines for Research Methodology" loading="lazy"></a>
+        <div class="bk-body">
+          <span class="bk-tag">Research methods</span>
+          <h3>Thematic Guidelines for Research Methodology</h3>
+          <p class="bk-sub">Principles, Standards, and Ethics</p>
+          <p class="bk-meta">Generis Publishing · 2024 · ISBN 979-8892481649</p>
+          <p>A practical guide to thematic analysis of qualitative data, especially in health services research. It covers the theoretical foundations, the main approaches and a six-step process with worked examples, along with the ethical and methodological questions researchers meet along the way.</p>
+          <a class="btn small" href="https://www.amazon.com.au/dp/B0CZ8S4TPD">View on Amazon</a>
+        </div>
+      </article>
+      <article class="bk">
+        <a class="bk-cover" href="https://www.amazon.com.au/dp/B0BR288KQN" aria-label="View Foundation of Database Technologies on Amazon"><img src="img/book-database.jpg" alt="Cover of Foundation of Database Technologies" loading="lazy"></a>
+        <div class="bk-body">
+          <span class="bk-tag">Databases & big data</span>
+          <h3>Foundation of Database Technologies</h3>
+          <p class="bk-sub">Concepts, Methods, and Theories: IoT, Big Data, Lambda Architecture, and Cloud Computing</p>
+          <p class="bk-meta">Generis Publishing · 2022 · ISBN 979-8886765496</p>
+          <p>Traces databases from 1960s relational systems to today's cloud data lakes, covering SQL Server, MongoDB, Cassandra, NoSQL, MapReduce and Spark, visualisation tools such as Tableau and Power BI, and big-data use cases from fraud detection to predictive maintenance.</p>
+          <a class="btn small" href="https://www.amazon.com.au/dp/B0BR288KQN">View on Amazon</a>
+        </div>
+      </article>
+      <article class="bk">
+        <a class="bk-cover" href="https://www.amazon.com.au/dp/6204727109" aria-label="View Machine Learning Algorithms: Theory and Practice on Amazon"><img src="img/book-ml.jpg" alt="Cover of Machine Learning Algorithms: Theory and Practice" loading="lazy"></a>
+        <div class="bk-body">
+          <span class="bk-tag">Machine learning</span>
+          <h3>Machine Learning Algorithms: Theory and Practice</h3>
+          <p class="bk-sub">Artificial Intelligence, Machine Learning, and Deep Learning Revolutions</p>
+          <p class="bk-meta">LAP Lambert Academic Publishing · ISBN 978-6204727103</p>
+          <p>An accessible introduction to machine learning algorithms, their theory and implementation, across supervised, unsupervised and semi-supervised learning, with sample source code to help readers see how each method works.</p>
+          <a class="btn small" href="https://www.amazon.com.au/dp/6204727109">View on Amazon</a>
+        </div>
+      </article>
+      <article class="bk bk-soon">
+        <a class="bk-cover" href="#chaos-of-reason" data-scrollto-about="1" aria-label="Read about The Chaos of Reason"><img src="img/chaos-of-reason.jpg" alt="Cover of The Chaos of Reason" loading="lazy"></a>
+        <div class="bk-body">
+          <span class="bk-tag">Forthcoming · Game theory &amp; complexity</span>
+          <h3>The Chaos of Reason</h3>
+          <p class="bk-sub">Finding Order with Game Theory and Complexity</p>
+          <p class="bk-meta">Generis Publishing · coming soon</p>
+          <p>Brings game theory and complexity science together to show why strategies built on prediction and control often fail, drawing on cases from Sierra Leone, West Africa and around the world.</p>
+          <a class="btn small ghost" href="#chaos-of-reason" data-scrollto-about="1">Read more</a>
+        </div>
       </article>
     </div>
     <div class="section-head" id="code">
@@ -1871,9 +1941,9 @@ const PUBS = [
  {id:"P2",type:"preprint",first:true,year:2026,title:"GRAFNet: Multiscale retinal processing via guided cortical attention feedback for medical image polyp segmentation",venue:"arXiv",doi:"10.48550/arXiv.2602.15072",themes:["health"]},
  {id:"P3",type:"preprint",first:false,year:2025,title:"nnSAM2: nnUNet-enhanced one-prompt SAM2 for few-shot multi-modality segmentation of lumbar paraspinal muscles",venue:"arXiv",doi:"10.48550/arXiv.2510.05555",themes:["health"]},
  {id:"B5",type:"book",first:true,year:null,title:"The Chaos of Reason: Finding Order with Game Theory and Complexity",venue:"Book · Generis Publishing · forthcoming",themes:[]},
- {id:"B1",type:"book",first:true,year:2024,title:"Thematic Guidelines for Research Methodology: Principles, Standards, and Ethics",venue:"Book · ISBN 979-8892481649",themes:[]},
- {id:"B2",type:"book",first:true,year:2022,title:"Foundation of Database Technologies: Concepts, Methods, and Theories (IoT, Big Data, Lambda Architecture, and Cloud Computing)",venue:"Book · ISBN 979-8886765496",themes:[]},
- {id:"B3",type:"book",first:true,year:null,title:"Machine Learning Algorithms: Theory and Practice (AI, Machine Learning, and Deep Learning Revolutions)",venue:"Book · ISBN 978-6204727103",themes:[]},
+ {id:"B1",type:"book",first:true,year:2024,title:"Thematic Guidelines for Research Methodology: Principles, Standards, and Ethics",venue:"Book · Generis Publishing · ISBN 979-8892481649",themes:[]},
+ {id:"B2",type:"book",first:true,year:2022,title:"Foundation of Database Technologies: Concepts, Methods, and Theories (IoT, Big Data, Lambda Architecture, and Cloud Computing)",venue:"Book · Generis Publishing · ISBN 979-8886765496",themes:[]},
+ {id:"B3",type:"book",first:true,year:null,title:"Machine Learning Algorithms: Theory and Practice (AI, Machine Learning, and Deep Learning Revolutions)",venue:"Book · LAP Lambert Academic Publishing · ISBN 978-6204727103",themes:[]},
  {id:"B4",type:"book",first:true,year:null,title:"Watermarking Technology using Frequency Domain and Genetic Programming",venue:"Book · ISBN 978-6202671859",themes:["health"]},
  {id:"T1",type:"report",first:true,year:null,title:"Population Mobility and Public Health Risk Mapping for COVID-19 Preparedness and Response, Round 1",venue:"IOM Nepal technical report · lead author",themes:["epi"]},
  {id:"T2",type:"report",first:true,year:null,title:"Population Mobility and Public Health Risk Mapping for COVID-19 Preparedness and Response, Round 2",venue:"IOM Nepal technical report · lead author",themes:["epi"]}
@@ -1960,6 +2030,7 @@ function authorsHTML(p){
 
 const REPOS = [{"name": "Nexus-SIGN", "cat": "health", "desc": "Leakage-free label propagation for few-label heterogeneous graph regression. Turns four field surveys from Port Loko District, Sierra Leone, into a health-systems graph and predicts the readiness of every facility.", "tags": ["Python", "Graph learning", "Health systems"], "link": "cur:Health-facility readiness"}, {"name": "RIG-Net", "cat": "health", "desc": "Renewal–importation graph network for sub-national Ebola forecasting, benchmarked against 16 published models on Guinea, Liberia, Sierra Leone and DR Congo data.", "tags": ["Python", "PyTorch", "Epidemiology"], "link": "cur:RIG-Net-GI"}, {"name": "TRIAD", "cat": "health", "desc": "Repository for TRIAD's code and the Port Loko multiplex evidence graph dataset: facilities, providers, informal vendors and key informants.", "tags": ["Dataset", "Health systems"], "link": "cur:TRIAD"}, {"name": "DeepEVDMob", "cat": "health", "desc": "DeepEVD: graph convolution and LSTM networks for spatio-temporal Ebola forecasting, predicting case numbers, reproduction rates and spatial risk.", "tags": ["Python", "PyTorch", "Epidemiology"], "link": "J12"}, {"name": "GANT-GNN", "cat": "graph", "desc": "Thermodynamic-guided graph anomaly detection with synthetic feature injection for imbalanced node classification.", "tags": ["Python", "PyTorch Geometric"], "link": "J1"}, {"name": "CL3AN-GNN", "cat": "graph", "desc": "Three-stage curriculum learning with class-aware normalisation, prototypical contrastive learning and boundary-aware margins for imbalanced nodes.", "tags": ["Python", "PyTorch Geometric"], "link": "J2"}, {"name": "CL3E-GNN", "cat": "graph", "desc": "Engage, Enact and Embed curriculum phases with dual GCN+GAT aggregation, importance sampling and memory-augmented reinforcement learning.", "tags": ["Python", "PyTorch Geometric"], "link": "J3"}, {"name": "PIMPC-GNN", "cat": "graph", "desc": "Physics-informed heat diffusion, phase desynchronisation and spectral modules with a severity-aware loss for imbalanced node classification.", "tags": ["Python", "PyTorch"], "link": "J4"}, {"name": "GATE-GNN", "cat": "graph", "desc": "Graph ensemble weight attention with transfer learning for imbalanced graph datasets.", "tags": ["Python", "Jupyter"], "link": "J15"}, {"name": "EATSA-GNN", "cat": "graph", "desc": "Edge-aware two-stage attention with a teacher–student mechanism for graph node classification.", "tags": ["Python", "Jupyter"], "link": "J11"}, {"name": "MCPST", "cat": "traffic", "desc": "Physics-informed multi-phase consensus (thermodynamic diffusion, Kuramoto synchronisation, spectral embedding) for few-shot cross-city traffic forecasting.", "tags": ["Python", "PyTorch", "Few-shot"], "link": "J5"}, {"name": "ST_FSFusion", "cat": "traffic", "desc": "Meta cross-domain fusion with cross-city knowledge transfer; adapts to a new city with as little as three days of data.", "tags": ["Python", "PyTorch", "Meta-learning"], "link": "J6"}, {"name": "MAST-Net", "cat": "traffic", "desc": "Manifold-aware spatio-temporal network combining asymmetric graph diffusion, frequency-domain temporal mixing and manifold-preserving augmentation.", "tags": ["Python", "PyTorch"], "link": "J7"}, {"name": "WaveFSL", "cat": "traffic", "desc": "Wave interference-based meta-learning that models traffic as combined wave patterns for few-shot forecasting.", "tags": ["Python", "PyTorch", "Meta-learning"], "link": "C1"}, {"name": "CHAMFormer", "cat": "traffic", "desc": "Dual heterogeneous coupling and multivariate feature-aware learning network for traffic flow prediction, with its datasets.", "tags": ["Python", "Transformer"], "link": "J10"}, {"name": "CIWI-CKT", "cat": "traffic", "desc": "Chaos-informed wave interference feature fusion with cross-city knowledge transfer, including analysis and figure scripts.", "tags": ["Python", "Chaos theory"], "link": "R2"}, {"name": "Ring-Round-Traffic-Flow-Data", "cat": "data", "desc": "Five-minute aggregated vehicle flows and travel times between road frames, released with the STAF traffic forecasting paper.", "tags": ["Dataset", "CSV", "Traffic"], "link": ""}, {"name": "NU-Masters-Classes", "cat": "teach", "desc": "Master's-level teaching materials: pattern recognition lecture notes and notebook (CSD622) and advanced database with MS SQL (CSD624).", "tags": ["Teaching", "Jupyter", "SQL"], "link": ""}, {"name": "University-Database-Design", "cat": "teach", "desc": "SQL Server database for university management: 20 linked tables, 50 queries, stored procedures and security configuration.", "tags": ["SQL Server", "Database design"], "link": ""}, {"name": "Data-Structure-and-Algorithms", "cat": "teach", "desc": "Sorting algorithm implementations for teaching data structures and algorithms.", "tags": ["Algorithms", "Teaching"], "link": ""}, {"name": "Time-Complexity-Analysis", "cat": "teach", "desc": "Time complexity analysis of algorithms in C++.", "tags": ["C++", "Algorithms"], "link": ""}, {"name": "OOP-Techniques-and-Implementations", "cat": "teach", "desc": "Object-oriented programming concepts with worked implementations.", "tags": ["OOP", "Teaching"], "link": ""}, {"name": "Object-Recognition-Project", "cat": "teach", "desc": "Object recognition project built with PyTorch.", "tags": ["PyTorch", "Computer vision"], "link": ""}, {"name": "FAKE_Store_App", "cat": "teach", "desc": "A demo online-store mobile app written in JavaScript with React Native.", "tags": ["JavaScript", "React Native"], "link": ""}];
 const REPO_OF = {}; REPOS.forEach(r=>{ if(r.link && !r.link.startsWith("cur:")) REPO_OF[r.link]=r.name; });
+const BUY={B1:"https://www.amazon.com.au/dp/B0CZ8S4TPD",B2:"https://www.amazon.com.au/dp/B0BR288KQN",B3:"https://www.amazon.com.au/dp/6204727109"};
 /* ---------- Router ---------- */
 const VIEWS = ["about","cv","research","talks","teaching","projects","hobbies","crid-sl","contact"];
 const ALIAS = {home:["about"], biography:["about","biography"], publications:["research","pubs"], experience:["cv"], inquiry:["crid-sl","inquiry"]};
@@ -1982,6 +2053,7 @@ function route(){
 }
 window.addEventListener("hashchange", route);
 document.addEventListener("click", e => {
+  if(e.target.closest("[data-scrollto-about]")){ e.preventDefault(); location.hash="about"; setTimeout(()=>{ const el=document.getElementById("chaos-of-reason"); if(el) el.scrollIntoView({behavior:reduced?"auto":"smooth"}); },60); return; }
   if(e.target.closest("#skipLink")){ e.preventDefault(); $("#main").focus(); return; }
   const a = e.target.closest('a[href^="#"]');
   if(!a) return;
@@ -2081,6 +2153,7 @@ function renderPubs(){
       <div class="side">
         ${p.q?`<span class="if num">${p.q}${p.if?" · IF "+p.if.toFixed(1):""}</span>`:""}
         ${p.doi?`<a class="linkbtn" href="https://doi.org/${esc(p.doi)}">DOI</a>`:""}
+        ${BUY[p.id]?`<a class="linkbtn" href="${BUY[p.id]}">Amazon</a>`:""}
         ${REPO_OF[p.id]?`<a class="linkbtn" href="https://github.com/afofanah/${REPO_OF[p.id]}">Code</a>`:""}
         <button class="linkbtn" data-cite="${p.id}">Cite</button>
       </div>
