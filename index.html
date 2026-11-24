@@ -884,7 +884,47 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
 .tr p{font-size:.9rem;color:var(--muted)}
 .tr-meta{margin-top:auto;padding-top:var(--s2);font-size:.8rem;font-weight:500;color:var(--forest)}
 
+
+/* Who / where */
+.reach{display:grid;grid-template-columns:1.25fr 1fr;gap:var(--s4)}
+.reach > section{border:1px solid var(--line);border-radius:14px;padding:var(--s6);display:flex;flex-direction:column;gap:var(--s3)}
+.reach-who{background:var(--surface);border-top:4px solid var(--gold-bright)!important}
+.reach-where{background:linear-gradient(135deg,var(--navy-1),var(--navy-2));color:#fff;border:0!important;border-bottom:4px solid var(--gold-bright)!important}
+.reach-where .eyebrow{color:var(--gold-bright)}
+.reach-where h2{color:#fff}
+.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:var(--s2)}
+.who{display:flex;gap:12px;align-items:flex-start;padding:12px;border-radius:10px;background:var(--paper);border:1px solid var(--line);transition:border-color .2s,transform .2s}
+.who:hover{border-color:var(--gold-bright);transform:translateY(-2px)}
+.who-ic{flex:none;width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--navy-1),var(--navy-2));color:var(--gold-bright)}
+.who-ic svg{width:20px;height:20px}
+.who b{display:block;font-size:.93rem}
+.who span{font-size:.8rem;color:var(--muted)}
+.hubs{display:flex;flex-direction:column;gap:10px;margin-top:var(--s2)}
+.hub{display:flex;gap:12px;align-items:center;padding:12px;border-radius:10px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14)}
+.hub-ic{flex:none;width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--gold-bright);color:var(--navy-2)}
+.hub-ic svg{width:20px;height:20px}
+.hub b{display:block;font-size:.95rem}
+.hub span{font-size:.8rem;color:var(--on-navy-muted)}
+.reach-where .k{font-family:var(--font-mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;color:var(--gold-bright);margin-top:var(--s2)}
+.countries{display:flex;flex-wrap:wrap;gap:6px}
+.countries span{font-size:.8rem;padding:4px 10px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18)}
+/* Service option tiles in inquiry form */
+.checks{display:grid!important;grid-template-columns:repeat(3,1fr);gap:8px}
+.checks label.svc-opt{position:relative;display:flex;align-items:center;gap:10px;padding:10px 34px 10px 10px;border-radius:10px;border:1px solid var(--line);background:var(--paper);cursor:pointer;font-weight:500;font-size:.88rem;line-height:1.3;transition:border-color .15s,background .15s}
+.checks label.svc-opt input{position:absolute;opacity:0;width:1px!important;height:1px;pointer-events:none}
+.so-ic{flex:none;width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:var(--forest-soft);color:var(--forest)}
+.so-ic svg{width:18px;height:18px}
+.so-tick{position:absolute;right:10px;top:50%;transform:translateY(-50%);width:20px;height:20px;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;font-size:.7rem;color:transparent}
+.checks label.svc-opt:hover{border-color:var(--gold-bright)}
+.checks label.svc-opt:has(input:checked){border-color:var(--gold-bright);background:#fff8e8;color:var(--navy-2)}
+.checks label.svc-opt:has(input:checked) .so-ic{background:linear-gradient(135deg,var(--navy-1),var(--navy-2));color:var(--gold-bright)}
+.checks label.svc-opt:has(input:checked) .so-tick{background:var(--gold-bright);border-color:var(--gold-bright);color:var(--navy-2)}
+.checks label.svc-opt:has(input:focus-visible){outline:2px solid var(--cobalt);outline-offset:2px}
+:root[data-theme="dark"] .checks label.svc-opt:has(input:checked){background:#2e2610;color:#f3d48c}
+
 @media (max-width: 960px){
+  .reach{grid-template-columns:1fr}
+  .checks{grid-template-columns:1fr 1fr}
   .flow,.track2{grid-template-columns:1fr 1fr}
   .flow::before{display:none}
   .shell{grid-template-columns:1fr}
@@ -958,6 +998,8 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
   .step:nth-child(-n+2){border-bottom:1px solid var(--line)}
 }
 @media (max-width: 560px){
+  .who-grid,.checks{grid-template-columns:1fr}
+  .reach > section{padding:var(--s5) var(--s4)}
   .flow,.track2{grid-template-columns:1fr}
   .tr-sum{width:100%}
   .tr-sum div{flex:1;min-width:0}
@@ -1895,22 +1937,30 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
       <article class="tr" data-cat="hum"><div class="tr-top"><span class="tr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><span class="tr-cat">Public health</span></div><h3>COVID-19 mobility risk mapping</h3><p>Lead author of two IOM Nepal technical reports on population mobility and public health risk.</p><span class="tr-meta">2020–2022 · Nepal · Ministry of Health award 2021</span></article>
     </div>
 
-    <div class="two">
-      <div class="panel">
-        <h3>Who we work with</h3>
-        <div class="sectors">
-          <span class="chip forest">Government ministries &amp; agencies</span>
-          <span class="chip forest">Universities &amp; research institutes</span>
-          <span class="chip forest">UN agencies &amp; NGOs</span>
-          <span class="chip forest">Banks &amp; financial services</span>
-          <span class="chip forest">Health programmes</span>
-          <span class="chip forest">Graduate researchers</span>
+    <div class="reach">
+      <section class="reach-who" aria-labelledby="h-who">
+        <span class="eyebrow">Clients</span>
+        <h2 id="h-who">Who We Work With</h2>
+        <div class="who-grid">
+          <div class="who"><span class="who-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-5 9 5"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/></svg></span><div><b>Government ministries &amp; agencies</b><span>National systems, data and digitisation</span></div></div>
+          <div class="who"><span class="who-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg></span><div><b>Universities &amp; research institutes</b><span>Research design, AI and curriculum</span></div></div>
+          <div class="who"><span class="who-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><div><b>UN agencies &amp; NGOs</b><span>Humanitarian data, M&amp;E and mapping</span></div></div>
+          <div class="who"><span class="who-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="6" width="20" height="13" rx="2"/><path d="M2 10h20M6 15h4"/></svg></span><div><b>Banks &amp; financial services</b><span>Data centres, networking and security</span></div></div>
+          <div class="who"><span class="who-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 0 0-7.1 7.1L12 21.5l8.8-8.8a5 5 0 0 0 0-7.1z"/></svg></span><div><b>Health programmes</b><span>Surveillance, forecasting and medical AI</span></div></div>
+          <div class="who"><span class="who-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h7M8 11h7"/></svg></span><div><b>Graduate researchers</b><span>Thesis design, methods and mentoring</span></div></div>
         </div>
-      </div>
-      <div class="panel">
-        <h3>Where</h3>
-        <p style="font-size:.93rem;color:var(--muted)">Based between Freetown and Brisbane, working on site in Sierra Leone and remotely worldwide. Field experience in Sierra Leone, Liberia, Guinea, Kenya, Nepal, Afghanistan, Thailand and Myanmar.</p>
-      </div>
+      </section>
+      <section class="reach-where" aria-labelledby="h-where">
+        <span class="eyebrow">Locations</span>
+        <h2 id="h-where">Where We Work</h2>
+        <div class="hubs">
+          <div class="hub"><span class="hub-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><div><b>Freetown, Sierra Leone</b><span>On-site delivery and training</span></div></div>
+          <div class="hub"><span class="hub-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><div><b>Brisbane, Australia</b><span>Research and AI development</span></div></div>
+          <div class="hub"><span class="hub-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/></svg></span><div><b>Remote, worldwide</b><span>Advisory, analysis and code</span></div></div>
+        </div>
+        <span class="k">Field experience in 8 countries</span>
+        <div class="countries"><span>Sierra Leone</span><span>Liberia</span><span>Guinea</span><span>Kenya</span><span>Nepal</span><span>Afghanistan</span><span>Thailand</span><span>Myanmar</span></div>
+      </section>
     </div>
 
     <div class="section-head">
@@ -2423,7 +2473,7 @@ $("#svcGrid").innerHTML = SERVICES.map((s,i)=>`<article class="svc2" data-svc="$
   <div class="s2-basis"><span>Grounded in</span>${esc(s.basis[0])}</div>
   <div class="s2-actions"><button class="btn small ghost s2-more" data-svc="${i}">All deliverables</button><button class="btn small s2-add" data-svc="${i}" aria-pressed="false"><span class="s2-plus">+</span> Add to inquiry</button></div>
 </article>`).join("");
-$("#svcChecks").innerHTML = SERVICES.map((s,i)=>`<label><input type="checkbox" id="svc-${i}" value="${esc(s.name)}"> ${esc(s.name)}</label>`).join("");
+$("#svcChecks").innerHTML = SERVICES.map((s,i)=>`<label class="svc-opt"><input type="checkbox" id="svc-${i}" value="${esc(s.name)}"><span class="so-ic" aria-hidden="true">${ICONS[i]}</span><span class="so-t">${esc(s.name)}</span><span class="so-tick" aria-hidden="true">✓</span></label>`).join("");
 function syncSvc(){
   const on=$$("#svcChecks input").map(c=>c.checked);
   $$(".s2-add").forEach(b=>{ const i=+b.dataset.svc; b.setAttribute("aria-pressed",String(on[i])); b.innerHTML = on[i] ? '<span class="s2-plus">✓</span> Added' : '<span class="s2-plus">+</span> Add to inquiry'; b.closest(".svc2").classList.toggle("picked",on[i]); });
