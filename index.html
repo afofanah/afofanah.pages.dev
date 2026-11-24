@@ -726,6 +726,22 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
 .repo-more{text-align:left!important}
 .codelink{font-size:.8rem}
 
+
+/* CV summary tiles */
+.cv-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s4)}
+.cvs{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:var(--s5);display:flex;flex-direction:column;gap:4px;transition:transform .2s,box-shadow .2s,border-color .2s}
+.cvs::before{content:"";position:absolute;left:0;top:0;right:0;height:4px;background:linear-gradient(90deg,var(--gold-bright),#f7d08a)}
+.cvs::after{content:"";position:absolute;right:-30px;bottom:-30px;width:110px;height:110px;border-radius:50%;background:var(--forest-soft);opacity:.7}
+.cvs:hover{transform:translateY(-3px);box-shadow:0 16px 32px -20px rgba(11,31,99,.45);border-color:var(--gold-bright)}
+.cvs > *{position:relative;z-index:1}
+.cvs-ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--navy-1),var(--navy-2));color:var(--gold-bright);margin-bottom:var(--s3)}
+.cvs-ic svg{width:22px;height:22px}
+.cvs b{display:flex;align-items:baseline;gap:8px;font-family:var(--font-display);font-weight:600;color:var(--forest);line-height:1}
+.cvs .cvs-n{font-size:2.8rem;font-variant-numeric:tabular-nums}
+.cvs small{font-family:var(--font-body);font-size:.85rem;font-weight:500;color:var(--gold);text-transform:uppercase;letter-spacing:.06em}
+.cvs-l{font-size:.95rem;font-weight:500;color:var(--ink);margin-top:6px}
+.cvs-d{font-size:.8rem;color:var(--muted);padding-top:8px;margin-top:auto;border-top:1px dashed var(--line)}
+
 @media (max-width: 960px){
   .shell{grid-template-columns:1fr}
   .rail{position:sticky;top:0;height:auto;z-index:10;flex-direction:row;flex-wrap:wrap;align-items:center;padding:var(--s3) var(--s4);gap:var(--s3);border-right:0;border-bottom:1px solid var(--line)}
@@ -752,8 +768,13 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
   .event-feature{grid-template-columns:1fr}
   .poster-feature.phd{grid-template-columns:1fr}
   .pstats{grid-template-columns:1fr 1fr}
+  .cvs{padding:var(--s4)}
+  .cvs .cvs-n{font-size:2.2rem}
+  .cvs b{flex-wrap:wrap;row-gap:2px}
+  .cvs small{font-size:.68rem;letter-spacing:.04em}
   .seminar-top{grid-template-columns:1fr}
   .metrics-pair{grid-template-columns:1fr}
+  .cv-stats{grid-template-columns:1fr 1fr}
   .book-feature{grid-template-columns:1fr;gap:var(--s5);padding:var(--s6) var(--s5)}
   .book-cover{max-width:240px;transform:none}
   .proj.has-img{grid-column:auto}
@@ -1064,11 +1085,11 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
       <p class="lede">Education, academic appointments, UN fieldwork and consulting, with awards, memberships and technical skills.</p>
       <div class="btns"><a class="btn" href="cv/Fofanah_CV.pdf" download="Fofanah_CV.pdf" style="background:var(--gold-bright);border-color:var(--gold-bright);color:var(--navy-2)"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>Download CV (PDF)</a></div>
     </div>
-    <div class="exp-top" aria-label="Experience at a glance">
-      <div><b>8</b><span>Years with the UN Migration Agency</span></div>
-      <div><b>10</b><span>Countries worked or studied in</span></div>
-      <div><b>5</b><span>Degrees and qualifications</span></div>
-      <div><b>16</b><span>Years teaching</span></div>
+    <div class="cv-stats" aria-label="Experience at a glance">
+      <div class="cvs"><span class="cvs-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><b><span class="cvs-n" data-to="8">8</span><small>years</small></b><span class="cvs-l">with the UN Migration Agency (IOM)</span><span class="cvs-d">2015–2023 · Ebola and COVID-19 responses</span></div>
+      <div class="cvs"><span class="cvs-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><b><span class="cvs-n" data-to="10">10</span><small>countries</small></b><span class="cvs-l">worked or studied in</span><span class="cvs-d">Across Africa, Asia and Australia</span></div>
+      <div class="cvs"><span class="cvs-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/></svg></span><b><span class="cvs-n" data-to="5">5</span><small>qualifications</small></b><span class="cvs-l">degrees and certificates</span><span class="cvs-d">PhD · M.Eng · MSc · BSc (Hons) · HTC</span></div>
+      <div class="cvs"><span class="cvs-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M7 8h6M7 11h10M12 16v4M8 20h8"/></svg></span><b><span class="cvs-n" data-to="16">16</span><small>years</small></b><span class="cvs-l">teaching at university level</span><span class="cvs-d">Since 2010 · AFHEA</span></div>
     </div>
     <div class="places"><span class="lbl">Worked in</span><span class="chip">Sierra Leone</span><span class="chip">Liberia</span><span class="chip">Guinea</span><span class="chip">Kenya</span><span class="chip">Nepal</span><span class="chip">Afghanistan</span><span class="chip">Thailand</span><span class="chip">Myanmar</span><span class="chip">China</span><span class="chip">Australia</span></div>
     <div class="filters seg" id="expSeg" role="group" aria-label="Filter experience"></div>
@@ -1950,6 +1971,7 @@ function show(view, scrollTarget){
   if(scrollTarget){ const el=document.getElementById(scrollTarget); if(el) el.scrollIntoView({behavior: reduced?"auto":"smooth", block:"start"}); }
   else window.scrollTo({top:0, behavior:"auto"});
   if(view==="about") runCounters();
+  if(view==="cv" && !reduced && !window.__cvCounted){ window.__cvCounted=true; $$(".cvs-n").forEach(el=>{ const to=+el.dataset.to, t0=performance.now(); const tick=t=>{ const p=Math.min(1,(t-t0)/900); el.textContent=Math.round(to*(1-Math.pow(1-p,3))); if(p<1) requestAnimationFrame(tick); }; requestAnimationFrame(tick); }); }
   const NAMES={about:"About Me",cv:"Resume / CV",research:"Research",talks:"Conferences / Talks",teaching:"Teaching",projects:"Projects",hobbies:"Hobbies","crid-sl":"CRID-SL Consulting",contact:"Contact"};
   document.title = (view==="about"?"":NAMES[view]+" · ")+"Dr Abdul Joseph Fofanah · CRID-SL";
 }
