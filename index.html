@@ -777,6 +777,46 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
 .hob-link{font-size:.85rem;margin-top:auto}
 
 .gal-note{grid-column:2;margin:0 6px 8px;font-size:.8rem;color:var(--muted);font-style:italic;text-align:left!important}
+
+/* Courses taught */
+.courses{border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:var(--s6);display:flex;flex-direction:column;gap:var(--s5);border-top:4px solid var(--gold-bright)}
+.courses-head{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--s4);flex-wrap:wrap}
+.courses-head > div:first-child{display:flex;flex-direction:column;gap:6px;max-width:70ch}
+.courses-head p{color:var(--muted);font-size:.93rem}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--s4)}
+.cgroup{border:1px solid var(--line);border-radius:10px;background:var(--paper);overflow:hidden}
+.cg-head{display:flex;align-items:center;gap:10px;padding:var(--s3) var(--s4);background:var(--surface);border-bottom:1px solid var(--line)}
+.cg-ic{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(135deg,var(--navy-1),var(--navy-2));color:var(--gold-bright);flex:none}
+.cg-ic svg{width:18px;height:18px}
+.cg-head h4{margin:0;font-size:.98rem;font-weight:600;flex:1}
+.cg-n{font-family:var(--font-mono);font-size:.75rem;color:var(--muted);background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:1px 8px}
+.clist{list-style:none;margin:0;padding:6px 0}
+.clist li{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:8px;padding:8px var(--s4);border-top:1px dashed var(--line);font-size:.9rem}
+.clist li:first-child{border-top:0}
+.clist li[hidden],.cgroup[hidden]{display:none}
+.cname{min-width:0}
+.ccode{font-family:var(--font-mono);font-size:.72rem;color:var(--forest);background:var(--forest-soft);border-radius:5px;padding:1px 6px}
+.cinst{font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;border-radius:999px;padding:2px 8px}
+.cinst.g{background:#fdecec;color:#b3261e}
+.cinst.s{background:#e6f4ec;color:#1d6b45}
+:root[data-theme="dark"] .cinst.g{background:#3a1d1f;color:#f2b8b5}
+:root[data-theme="dark"] .cinst.s{background:#173226;color:#8fd6ae}
+/* Peer review */
+.peer{display:grid;grid-template-columns:1.1fr 1fr;border-radius:14px;overflow:hidden;border:1px solid var(--line);border-bottom:4px solid var(--gold-bright);grid-column:1/-1}
+.peer-main{background:linear-gradient(120deg,var(--navy-1),var(--navy-2));color:#fff;padding:var(--s6);display:flex;flex-direction:column;gap:var(--s4)}
+.peer-main .eyebrow{color:var(--gold-bright)}
+.peer-main h2{color:#fff;font-weight:700}
+.peer-big{display:flex;align-items:center;gap:var(--s4)}
+.peer-big b{font-family:var(--font-display);font-size:4rem;line-height:1;color:var(--gold-bright);font-weight:600;font-variant-numeric:tabular-nums}
+.peer-big > span{color:var(--on-navy-muted);font-size:1rem;max-width:26ch}
+.pubs-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.pubs-row span{display:grid;place-items:center;text-align:center;padding:12px 6px;border-radius:8px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);font-family:var(--font-display);font-weight:600;font-size:1.02rem;color:#fff}
+.peer-side{background:var(--surface);padding:var(--s6);display:flex;flex-direction:column;gap:var(--s5)}
+.peer-side .k{display:block;font-family:var(--font-mono);font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--gold);margin-bottom:10px}
+.assess{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.assess li{display:flex;align-items:center;gap:8px;font-size:.92rem;font-weight:500;padding:10px 12px;border-radius:8px;background:var(--forest-soft)}
+.assess svg{width:18px;height:18px;color:var(--forest);flex:none}
+
 @media (max-width: 960px){
   .shell{grid-template-columns:1fr}
   .rail{position:sticky;top:0;height:auto;z-index:10;flex-direction:row;flex-wrap:wrap;align-items:center;padding:var(--s3) var(--s4);gap:var(--s3);border-right:0;border-bottom:1px solid var(--line)}
@@ -806,6 +846,10 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
   .pstats{grid-template-columns:1fr 1fr}
   .cvs{padding:var(--s4)}
   .cvs .cvs-n{font-size:2.2rem}
+  .pubs-row{grid-template-columns:1fr 1fr}
+  .assess{grid-template-columns:1fr}
+  .peer-main,.peer-side{padding:var(--s5) var(--s4)}
+  .peer-big b{font-size:3rem}
   .bk{grid-template-columns:100px 1fr;gap:var(--s4);padding:var(--s4)}
   .cvs b{flex-wrap:wrap;row-gap:2px}
   .cvs small{font-size:.68rem;letter-spacing:.04em}
@@ -813,6 +857,8 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
   .metrics-pair{grid-template-columns:1fr}
   .cv-stats{grid-template-columns:1fr 1fr}
   .bk-grid{grid-template-columns:1fr}
+  .peer{grid-template-columns:1fr}
+  .courses{padding:var(--s5) var(--s4)}
   .nature-grid{grid-template-columns:1fr 1fr}
   .nature-grid button{height:340px}
   .nature-head{padding:var(--s5) var(--s4) var(--s4)}
@@ -1529,19 +1575,19 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
         <p>Njala University and Milton Margai Technical University. Led curriculum review and development for the Department of Mathematics and Computer Science (2016–2018, 2021–2022).</p>
       </div>
     </div>
-    <div class="panel" id="teaching-courses">
-      <h3>Courses taught</h3>
-      <p class="lbl" style="color:var(--muted);font-weight:400">Griffith University</p>
-      <div class="course-list">
-        <span class="chip">Applied Computing <span class="mono">1011ICT</span></span>
-        <span class="chip">Object Oriented Software Development <span class="mono">2006ICT</span></span>
-        <span class="chip">Web Application Development <span class="mono">3004ICT</span></span>
-        <span class="chip">Web Programming <span class="mono">7005ICT</span></span>
-        <span class="chip">Software Design</span><span class="chip">Software Technologies</span>
-        <span class="chip">Design Thinking in IT</span>
-        <span class="chip">IT &amp; Cyber Security Governance, Policy, Ethics and Law</span>
-        <span class="chip">Project &amp; Cyber Security Management</span>
+    <section class="courses" id="teaching-courses" aria-labelledby="h-courses">
+      <div class="courses-head">
+        <div><span class="eyebrow">Teaching</span><h2 id="h-courses">Courses Taught</h2><p>Undergraduate and postgraduate courses in computing, data and security at Griffith University (Australia) and at Njala University and Milton Margai Technical University (Sierra Leone).</p></div>
+        <div class="seg" id="courseSeg" role="group" aria-label="Filter courses by institution"><button data-inst="all" aria-pressed="true">All</button><button data-inst="g" aria-pressed="false">Griffith University</button><button data-inst="s" aria-pressed="false">Njala &amp; MMTU</button></div>
       </div>
+      <div class="cgrid">
+      <div class="cgroup"><div class="cg-head"><span class="cg-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 8-5 4 5 4M16 8l5 4-5 4M14 5l-4 14"/></svg></span><h4>Programming & software engineering</h4><span class="cg-n">5</span></div><ul class="clist"><li data-inst="g"><span class="cname">Applied Computing</span><span class="ccode">1011ICT</span><span class="cinst g" title="Griffith University">Griffith</span></li><li data-inst="g"><span class="cname">Object Oriented Software Development</span><span class="ccode">2006ICT</span><span class="cinst g" title="Griffith University">Griffith</span></li><li data-inst="g"><span class="cname">Software Design</span><span class="cinst g" title="Griffith University">Griffith</span></li><li data-inst="g"><span class="cname">Software Technologies</span><span class="cinst g" title="Griffith University">Griffith</span></li><li data-inst="s"><span class="cname">Programming: Python, Java, C#, C++, VB.NET, SQL</span><span class="cinst s" title="Njala University and Milton Margai Technical University">Njala & MMTU</span></li></ul></div>
+      <div class="cgroup"><div class="cg-head"><span class="cg-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><h4>Web development</h4><span class="cg-n">2</span></div><ul class="clist"><li data-inst="g"><span class="cname">Web Application Development</span><span class="ccode">3004ICT</span><span class="cinst g" title="Griffith University">Griffith</span></li><li data-inst="g"><span class="cname">Web Programming</span><span class="ccode">7005ICT</span><span class="cinst g" title="Griffith University">Griffith</span></li></ul></div>
+      <div class="cgroup"><div class="cg-head"><span class="cg-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></span><h4>Cyber security, governance & projects</h4><span class="cg-n">3</span></div><ul class="clist"><li data-inst="g"><span class="cname">IT & Cyber Security Governance, Policy, Ethics and Law</span><span class="cinst g" title="Griffith University">Griffith</span></li><li data-inst="g"><span class="cname">Project & Cyber Security Management</span><span class="cinst g" title="Griffith University">Griffith</span></li><li data-inst="g"><span class="cname">Design Thinking in IT</span><span class="cinst g" title="Griffith University">Griffith</span></li></ul></div>
+      <div class="cgroup"><div class="cg-head"><span class="cg-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><h4>Data, statistics & AI</h4><span class="cg-n">3</span></div><ul class="clist"><li data-inst="s"><span class="cname">Statistics</span><span class="cinst s" title="Njala University and Milton Margai Technical University">Njala & MMTU</span></li><li data-inst="s"><span class="cname">Data Mining</span><span class="cinst s" title="Njala University and Milton Margai Technical University">Njala & MMTU</span></li><li data-inst="s"><span class="cname">Pattern Recognition</span><span class="cinst s" title="Njala University and Milton Margai Technical University">Njala & MMTU</span></li></ul></div>
+      <div class="cgroup"><div class="cg-head"><span class="cg-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h7"/><circle cx="18" cy="16" r="3"/></svg></span><h4>Mathematics & computing foundations</h4><span class="cg-n">3</span></div><ul class="clist"><li data-inst="s"><span class="cname">Computer Mathematics</span><span class="cinst s" title="Njala University and Milton Margai Technical University">Njala & MMTU</span></li><li data-inst="s"><span class="cname">Data Structures</span><span class="cinst s" title="Njala University and Milton Margai Technical University">Njala & MMTU</span></li><li data-inst="s"><span class="cname">Integrated Systems</span><span class="cinst s" title="Njala University and Milton Margai Technical University">Njala & MMTU</span></li></ul></div>
+      </div>
+    </section>
       <p class="lbl" style="color:var(--muted);font-weight:400;margin-top:8px">Njala University &amp; MMTU</p>
       <div class="course-list">
         <span class="chip">Statistics</span><span class="chip">Data Mining</span><span class="chip">Pattern Recognition</span>
@@ -1549,11 +1595,18 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
         <span class="chip">Python · Java · C# · C++ · VB.NET · SQL</span>
       </div>
     </div>
-      <div class="panel">
-        <h3>Peer review &amp; editorial service</h3>
-        <p style="color:var(--muted);font-size:.93rem">More than 100 manuscripts reviewed on graph neural networks, anomaly detection, spatiotemporal forecasting, medical image analysis and health informatics, assessing methodology, experimental design, reproducibility and theoretical soundness.</p>
-        <div class="course-list"><span class="chip forest">Springer Nature</span><span class="chip forest">Elsevier</span><span class="chip forest">IEEE</span><span class="chip forest">PeerJ</span></div>
-      </div>
+      <section class="peer" aria-labelledby="h-peer">
+        <div class="peer-main">
+          <span class="eyebrow">Service to the field</span>
+          <h2 id="h-peer">Peer Review &amp; Editorial Service</h2>
+          <div class="peer-big"><b><span class="cvs-n" data-to="100">100</span>+</b><span>manuscripts reviewed for leading international publishers</span></div>
+          <div class="pubs-row"><span>Springer Nature</span><span>Elsevier</span><span>IEEE</span><span>PeerJ</span></div>
+        </div>
+        <div class="peer-side">
+          <div><span class="k">Topics reviewed</span><div class="outputs"><span class="chip forest">Graph neural networks</span><span class="chip forest">Anomaly detection</span><span class="chip forest">Spatiotemporal forecasting</span><span class="chip forest">Medical image analysis</span><span class="chip forest">Health informatics</span></div></div>
+          <div><span class="k">What each review assesses</span><ul class="assess"><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Methodology</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Experimental design</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Reproducibility</li><li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>Theoretical soundness</li></ul></div>
+        </div>
+      </section>
   </section>
 
   <!-- PROJECTS -->
@@ -2246,6 +2299,9 @@ $("#repoGrid").innerHTML = REPOS.map(r=>{
 $("#repoSeg").addEventListener("click", e=>{ const b=e.target.closest("button"); if(!b) return; $$("#repoSeg button").forEach(x=>x.setAttribute("aria-pressed",String(x===b))); $$("#repoGrid .repo").forEach(c=>c.hidden=!(b.dataset.cat==="all"||c.dataset.cat===b.dataset.cat)); });
 renderPubs();
 
+/* Course filter */
+$("#courseSeg").addEventListener("click", e=>{ const b=e.target.closest("button"); if(!b) return; $$("#courseSeg button").forEach(x=>x.setAttribute("aria-pressed",String(x===b))); const v=b.dataset.inst;
+  $$("#teaching-courses .cgroup").forEach(g=>{ let n=0; g.querySelectorAll("li").forEach(li=>{ const show=v==="all"||li.dataset.inst===v; li.hidden=!show; if(show) n++; }); g.hidden=n===0; g.querySelector(".cg-n").textContent=n; }); });
 /* Cite dialog */
 let citeP = null, citeFmt = "apa";
 function citeString(p, fmt){
