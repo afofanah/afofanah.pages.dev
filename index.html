@@ -709,6 +709,23 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
 
 
 
+
+/* Repositories */
+.repo-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:var(--s4)}
+.repo{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);padding:var(--s5);display:flex;flex-direction:column;gap:var(--s2);transition:border-color .15s,transform .15s}
+.repo:hover{border-color:var(--gold-bright);transform:translateY(-2px)}
+.repo[hidden]{display:none}
+.repo .rtop{display:flex;align-items:center;gap:10px}
+.repo .rtop svg{width:20px;height:20px;flex:none;color:var(--forest)}
+.repo h3{font-family:var(--font-mono);font-size:.98rem;font-weight:500;word-break:break-word}
+.repo h3 a{color:var(--ink);text-decoration:none}
+.repo h3 a:hover{color:var(--cobalt);text-decoration:underline}
+.repo p{font-size:.88rem;color:var(--muted)}
+.repo .rfoot{margin-top:auto;padding-top:var(--s2);display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;font-size:.8rem}
+.repo .rcat{font-family:var(--font-mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--gold)}
+.repo-more{text-align:left!important}
+.codelink{font-size:.8rem}
+
 @media (max-width: 960px){
   .shell{grid-template-columns:1fr}
   .rail{position:sticky;top:0;height:auto;z-index:10;flex-direction:row;flex-wrap:wrap;align-items:center;padding:var(--s3) var(--s4);gap:var(--s3);border-right:0;border-bottom:1px solid var(--line)}
@@ -842,6 +859,7 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
       <a href="https://orcid.org/0000-0001-8742-9325">ORCID 0000-0001-8742-9325</a>
       <a id="scholarLink" href="https://scholar.google.com/scholar?hl=en&amp;as_sdt=0%2C5&amp;q=Abdul+Joseph+Fofanah&amp;btnG=">Google Scholar</a>
       <a href="https://www.linkedin.com/in/abdul-joseph-fofanah-64472612b/">LinkedIn</a>
+      <a href="https://github.com/afofanah">GitHub</a>
     </div>
   </aside>
 
@@ -1115,14 +1133,14 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
     <div class="cur-grid">
       <article class="cur">
         <div class="cur-top"><span class="cur-status"><i></i>In progress</span><span class="cur-n">01</span></div>
-        <h3>RIG-Net-GI</h3>
+        <h3>RIG-Net-GI <a class="codelink" href="https://github.com/afofanah/RIG-Net">· Code on GitHub</a></h3>
         <p class="cur-title">RIG-Net-GI: A Renewal-Importation Graph Network with Genomic Priors and Intervention-Aware Dynamics for Sub-national Ebola Forecasting</p>
         <p>A graph network that models how Ebola cases renew locally and are imported between districts, adding genomic priors and the effect of interventions, to forecast outbreaks below the national level.</p>
         <div class="outputs"><span class="chip forest">AI for epidemiology</span><span class="chip forest">Graph learning</span></div>
       </article>
       <article class="cur">
         <div class="cur-top"><span class="cur-status"><i></i>In progress</span><span class="cur-n">02</span></div>
-        <h3>Health-facility readiness</h3>
+        <h3>Health-facility readiness <a class="codelink" href="https://github.com/afofanah/Nexus-SIGN">· Code on GitHub</a></h3>
         <p class="cur-title">Spatial Prediction of Health-Facility Readiness in Low-Resource Settings: A Heterogeneous Graph Learning Approach</p>
         <p>Heterogeneous graph learning that predicts how ready health facilities are to deliver care across space, so planners can see where readiness is likely to fall short in low-resource settings.</p>
         <div class="outputs"><span class="chip forest">Health informatics</span><span class="chip forest">Graph learning</span></div>
@@ -1143,7 +1161,7 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
       </article>
       <article class="cur">
         <div class="cur-top"><span class="cur-status"><i></i>In progress</span><span class="cur-n">05</span></div>
-        <h3>TRIAD</h3>
+        <h3>TRIAD <a class="codelink" href="https://github.com/afofanah/TRIAD">· Code on GitHub</a></h3>
         <p class="cur-title">TRIAD: TRIangulated Informality-Adjusted Discordance-Aware Fusion of Heterogeneous and Multi-Source Health System Evidence</p>
         <p>A framework that triangulates evidence about health systems from many heterogeneous sources, adjusts for informality and explicitly accounts for disagreement between sources.</p>
         <div class="outputs"><span class="chip forest">Health informatics</span><span class="chip forest">Evidence fusion</span></div>
@@ -1163,6 +1181,14 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
         <div class="outputs"><span class="chip forest">Transport & mobility</span><span class="chip forest">Cross-city transfer</span></div>
       </article>
     </div>
+    <div class="section-head" id="code">
+      <span class="eyebrow">Code &amp; datasets</span>
+      <h2>Open-Source Code</h2>
+      <p class="lede">Implementations, datasets and teaching materials on GitHub. Most research repositories accompany a published paper and include training and evaluation scripts.</p>
+    </div>
+    <div class="seg" id="repoSeg" role="group" aria-label="Filter repositories"><button data-cat="all" aria-pressed="true">All</button><button data-cat="graph" aria-pressed="false">Graph anomaly detection</button><button data-cat="traffic" aria-pressed="false">Traffic forecasting</button><button data-cat="health" aria-pressed="false">Health &amp; epidemiology</button><button data-cat="data" aria-pressed="false">Datasets</button><button data-cat="teach" aria-pressed="false">Teaching &amp; coursework</button></div>
+    <div class="repo-grid" id="repoGrid"></div>
+    <p class="repo-more"><a class="btn ghost small" href="https://github.com/afofanah">View all repositories on GitHub</a></p>
     <div class="section-head" id="pubs">
       <span class="eyebrow">Publications</span>
       <h2>Publications and outputs</h2>
@@ -1682,7 +1708,7 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
         <div class="crow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><div><span class="k">Email</span><span class="v">dmitripeter.fofanah@gmail.com</span> <button class="linkbtn" data-copy="dmitripeter.fofanah@gmail.com">Copy</button></div></div>
         <div class="crow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><div><span class="k">Location</span><span class="v">Brisbane, Queensland, Australia</span></div></div>
         <div class="crow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 8v8M12 8h2a4 4 0 0 1 0 8h-2z"/></svg></span><div><span class="k">ORCID</span><a class="v" href="https://orcid.org/0000-0001-8742-9325">0000-0001-8742-9325</a></div></div>
-        <div class="crow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><div><span class="k">Profiles</span><span class="v"><a href="https://scholar.google.com/scholar?hl=en&amp;as_sdt=0%2C5&amp;q=Abdul+Joseph+Fofanah&amp;btnG=">Google Scholar</a> · <a href="https://www.linkedin.com/in/abdul-joseph-fofanah-64472612b/">LinkedIn</a></span></div></div>
+        <div class="crow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></span><div><span class="k">Profiles</span><span class="v"><a href="https://scholar.google.com/scholar?hl=en&amp;as_sdt=0%2C5&amp;q=Abdul+Joseph+Fofanah&amp;btnG=">Google Scholar</a> · <a href="https://www.linkedin.com/in/abdul-joseph-fofanah-64472612b/">LinkedIn</a> · <a href="https://github.com/afofanah">GitHub</a></span></div></div>
         <div class="crow"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><div><span class="k">Referees</span><span class="v">Available on request</span></div></div>
         <div class="crow"><span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg></span><div><span class="k">Curriculum vitae</span><a class="v" href="cv/Fofanah_CV.pdf" download="Fofanah_CV.pdf">Download CV (PDF)</a></div></div>
       </div>
@@ -1710,7 +1736,7 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
   <footer class="site">
     <div><strong>Dr Abdul Joseph Fofanah</strong>AI and deep learning researcher, university educator, and founder of the Centre for Research, Innovation and Development (CRID-SL).</div>
     <div><span class="k">Explore</span><nav aria-label="Footer"><a href="#about">About Me</a><a href="#cv">Resume / CV</a><a href="#research">Research</a><a href="#talks">Conferences / Talks</a><a href="#projects">Projects</a><a href="#hobbies">Hobbies</a></nav></div>
-    <div><span class="k">Connect</span><nav aria-label="Contact links"><a href="#crid-sl">CRID-SL consulting</a><a href="#contact">Contact</a><a href="https://orcid.org/0000-0001-8742-9325">ORCID</a><a href="https://scholar.google.com/scholar?hl=en&amp;as_sdt=0%2C5&amp;q=Abdul+Joseph+Fofanah&amp;btnG=">Google Scholar</a><a href="https://www.linkedin.com/in/abdul-joseph-fofanah-64472612b/">LinkedIn</a><span>dmitripeter.fofanah@gmail.com</span></nav></div>
+    <div><span class="k">Connect</span><nav aria-label="Contact links"><a href="#crid-sl">CRID-SL consulting</a><a href="#contact">Contact</a><a href="https://orcid.org/0000-0001-8742-9325">ORCID</a><a href="https://scholar.google.com/scholar?hl=en&amp;as_sdt=0%2C5&amp;q=Abdul+Joseph+Fofanah&amp;btnG=">Google Scholar</a><a href="https://www.linkedin.com/in/abdul-joseph-fofanah-64472612b/">LinkedIn</a><a href="https://github.com/afofanah">GitHub</a><span>dmitripeter.fofanah@gmail.com</span></nav></div>
     <div class="legal"><span>© <span id="yr">2026</span> Dr Abdul Joseph Fofanah · CRID-SL</span><span>Last updated November 2026</span></div>
   </footer>
   </main>
@@ -1911,6 +1937,8 @@ function authorsHTML(p){
   return html + (list.length>8 ? ` <span class="more-au">(${list.length} authors${fofIn?"":"; Dr Aajay in the FUTURE-AI Consortium"})</span>` : "");
 }
 
+const REPOS = [{"name": "Nexus-SIGN", "cat": "health", "desc": "Leakage-free label propagation for few-label heterogeneous graph regression. Turns four field surveys from Port Loko District, Sierra Leone, into a health-systems graph and predicts the readiness of every facility.", "tags": ["Python", "Graph learning", "Health systems"], "link": "cur:Health-facility readiness"}, {"name": "RIG-Net", "cat": "health", "desc": "Renewal–importation graph network for sub-national Ebola forecasting, benchmarked against 16 published models on Guinea, Liberia, Sierra Leone and DR Congo data.", "tags": ["Python", "PyTorch", "Epidemiology"], "link": "cur:RIG-Net-GI"}, {"name": "TRIAD", "cat": "health", "desc": "Repository for TRIAD's code and the Port Loko multiplex evidence graph dataset: facilities, providers, informal vendors and key informants.", "tags": ["Dataset", "Health systems"], "link": "cur:TRIAD"}, {"name": "DeepEVDMob", "cat": "health", "desc": "DeepEVD: graph convolution and LSTM networks for spatio-temporal Ebola forecasting, predicting case numbers, reproduction rates and spatial risk.", "tags": ["Python", "PyTorch", "Epidemiology"], "link": "J12"}, {"name": "GANT-GNN", "cat": "graph", "desc": "Thermodynamic-guided graph anomaly detection with synthetic feature injection for imbalanced node classification.", "tags": ["Python", "PyTorch Geometric"], "link": "J1"}, {"name": "CL3AN-GNN", "cat": "graph", "desc": "Three-stage curriculum learning with class-aware normalisation, prototypical contrastive learning and boundary-aware margins for imbalanced nodes.", "tags": ["Python", "PyTorch Geometric"], "link": "J2"}, {"name": "CL3E-GNN", "cat": "graph", "desc": "Engage, Enact and Embed curriculum phases with dual GCN+GAT aggregation, importance sampling and memory-augmented reinforcement learning.", "tags": ["Python", "PyTorch Geometric"], "link": "J3"}, {"name": "PIMPC-GNN", "cat": "graph", "desc": "Physics-informed heat diffusion, phase desynchronisation and spectral modules with a severity-aware loss for imbalanced node classification.", "tags": ["Python", "PyTorch"], "link": "J4"}, {"name": "GATE-GNN", "cat": "graph", "desc": "Graph ensemble weight attention with transfer learning for imbalanced graph datasets.", "tags": ["Python", "Jupyter"], "link": "J15"}, {"name": "EATSA-GNN", "cat": "graph", "desc": "Edge-aware two-stage attention with a teacher–student mechanism for graph node classification.", "tags": ["Python", "Jupyter"], "link": "J11"}, {"name": "MCPST", "cat": "traffic", "desc": "Physics-informed multi-phase consensus (thermodynamic diffusion, Kuramoto synchronisation, spectral embedding) for few-shot cross-city traffic forecasting.", "tags": ["Python", "PyTorch", "Few-shot"], "link": "J5"}, {"name": "ST_FSFusion", "cat": "traffic", "desc": "Meta cross-domain fusion with cross-city knowledge transfer; adapts to a new city with as little as three days of data.", "tags": ["Python", "PyTorch", "Meta-learning"], "link": "J6"}, {"name": "MAST-Net", "cat": "traffic", "desc": "Manifold-aware spatio-temporal network combining asymmetric graph diffusion, frequency-domain temporal mixing and manifold-preserving augmentation.", "tags": ["Python", "PyTorch"], "link": "J7"}, {"name": "WaveFSL", "cat": "traffic", "desc": "Wave interference-based meta-learning that models traffic as combined wave patterns for few-shot forecasting.", "tags": ["Python", "PyTorch", "Meta-learning"], "link": "C1"}, {"name": "CHAMFormer", "cat": "traffic", "desc": "Dual heterogeneous coupling and multivariate feature-aware learning network for traffic flow prediction, with its datasets.", "tags": ["Python", "Transformer"], "link": "J10"}, {"name": "CIWI-CKT", "cat": "traffic", "desc": "Chaos-informed wave interference feature fusion with cross-city knowledge transfer, including analysis and figure scripts.", "tags": ["Python", "Chaos theory"], "link": "R2"}, {"name": "Ring-Round-Traffic-Flow-Data", "cat": "data", "desc": "Five-minute aggregated vehicle flows and travel times between road frames, released with the STAF traffic forecasting paper.", "tags": ["Dataset", "CSV", "Traffic"], "link": ""}, {"name": "NU-Masters-Classes", "cat": "teach", "desc": "Master's-level teaching materials: pattern recognition lecture notes and notebook (CSD622) and advanced database with MS SQL (CSD624).", "tags": ["Teaching", "Jupyter", "SQL"], "link": ""}, {"name": "University-Database-Design", "cat": "teach", "desc": "SQL Server database for university management: 20 linked tables, 50 queries, stored procedures and security configuration.", "tags": ["SQL Server", "Database design"], "link": ""}, {"name": "Data-Structure-and-Algorithms", "cat": "teach", "desc": "Sorting algorithm implementations for teaching data structures and algorithms.", "tags": ["Algorithms", "Teaching"], "link": ""}, {"name": "Time-Complexity-Analysis", "cat": "teach", "desc": "Time complexity analysis of algorithms in C++.", "tags": ["C++", "Algorithms"], "link": ""}, {"name": "OOP-Techniques-and-Implementations", "cat": "teach", "desc": "Object-oriented programming concepts with worked implementations.", "tags": ["OOP", "Teaching"], "link": ""}, {"name": "Object-Recognition-Project", "cat": "teach", "desc": "Object recognition project built with PyTorch.", "tags": ["PyTorch", "Computer vision"], "link": ""}, {"name": "FAKE_Store_App", "cat": "teach", "desc": "A demo online-store mobile app written in JavaScript with React Native.", "tags": ["JavaScript", "React Native"], "link": ""}];
+const REPO_OF = {}; REPOS.forEach(r=>{ if(r.link && !r.link.startsWith("cur:")) REPO_OF[r.link]=r.name; });
 /* ---------- Router ---------- */
 const VIEWS = ["about","cv","research","talks","teaching","projects","hobbies","crid-sl","contact"];
 const ALIAS = {home:["about"], biography:["about","biography"], publications:["research","pubs"], experience:["cv"], inquiry:["crid-sl","inquiry"]};
@@ -2031,6 +2059,7 @@ function renderPubs(){
       <div class="side">
         ${p.q?`<span class="if num">${p.q}${p.if?" · IF "+p.if.toFixed(1):""}</span>`:""}
         ${p.doi?`<a class="linkbtn" href="https://doi.org/${esc(p.doi)}">DOI</a>`:""}
+        ${REPO_OF[p.id]?`<a class="linkbtn" href="https://github.com/afofanah/${REPO_OF[p.id]}">Code</a>`:""}
         <button class="linkbtn" data-cite="${p.id}">Cite</button>
       </div>
     </li>`).join("") : `<li class="empty">No outputs match. Clear the search or choose another filter.</li>`;
@@ -2071,6 +2100,19 @@ if($("#pubTotal")) $("#pubTotal").textContent = PUBS.length;
   }).catch(()=>{});
   try{ fetch("data/openalex.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(d=>{ if(d && d.counts_by_year) render(d); }).catch(()=>{}).finally(live); }catch(e){ live(); }
 })();
+
+
+/* ---------- GitHub repositories ---------- */
+const REPO_CAT = {graph:"Graph anomaly detection",traffic:"Traffic forecasting",health:"Health & epidemiology",data:"Dataset",teach:"Teaching & coursework"};
+const GH_ICON = '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>';
+$("#repoGrid").innerHTML = REPOS.map(r=>{
+  const url="https://github.com/afofanah/"+r.name;
+  const pub = r.link && !r.link.startsWith("cur:") ? PUBS.find(p=>p.id===r.link) : null;
+  const paper = pub ? `<a href="#pubs" data-scrollto="pubs" title="${esc(pub.title)}">Paper ${pub.id}</a>` : (r.link.startsWith("cur:") ? `<span>Current project</span>` : "");
+  return `<article class="repo" data-cat="${r.cat}"><div class="rtop">${GH_ICON}<h3><a href="${url}">${esc(r.name)}</a></h3></div><span class="rcat">${REPO_CAT[r.cat]}</span><p>${esc(r.desc)}</p><div class="outputs">${r.tags.map(t=>`<span class="chip">${esc(t)}</span>`).join("")}</div><div class="rfoot"><a href="${url}">View code →</a>${paper}</div></article>`;
+}).join("");
+$("#repoSeg").addEventListener("click", e=>{ const b=e.target.closest("button"); if(!b) return; $$("#repoSeg button").forEach(x=>x.setAttribute("aria-pressed",String(x===b))); $$("#repoGrid .repo").forEach(c=>c.hidden=!(b.dataset.cat==="all"||c.dataset.cat===b.dataset.cat)); });
+renderPubs();
 
 /* Cite dialog */
 let citeP = null, citeFmt = "apa";
