@@ -922,7 +922,26 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
 .checks label.svc-opt:has(input:focus-visible){outline:2px solid var(--cobalt);outline-offset:2px}
 :root[data-theme="dark"] .checks label.svc-opt:has(input:checked){background:#2e2610;color:#f3d48c}
 
+
+/* Ways to work together */
+.ways{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--s4)}
+.way{position:relative;display:flex;flex-direction:column;gap:8px;border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:var(--s5);overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s}
+.way::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--navy-1),var(--gold-bright))}
+.way:hover{transform:translateY(-3px);box-shadow:0 18px 36px -24px rgba(11,31,99,.5);border-color:var(--gold-bright)}
+.way-ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--navy-1),var(--navy-2));color:var(--gold-bright);margin-bottom:4px}
+.way-ic svg{width:24px;height:24px}
+.way h3{font-size:1.15rem}
+.way p{font-size:.88rem;color:var(--muted);text-align:left!important;hyphens:manual!important}
+.way .outputs{margin-top:auto;padding-top:4px}
+.way-go{align-self:flex-start;margin-top:6px}
+.msg-flash{animation:msgFlash 1.4s ease-out}
+@media (max-width:1280px){.ways{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:760px){.ways{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.ways{grid-template-columns:1fr}}
+@keyframes msgFlash{0%{box-shadow:0 0 0 0 rgba(240,178,62,.8)}100%{box-shadow:0 0 0 14px rgba(240,178,62,0)}}
+
 @media (max-width: 960px){
+  .ways{grid-template-columns:1fr 1fr}
   .reach{grid-template-columns:1fr}
   .checks{grid-template-columns:1fr 1fr}
   .flow,.track2{grid-template-columns:1fr 1fr}
@@ -998,6 +1017,7 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
   .step:nth-child(-n+2){border-bottom:1px solid var(--line)}
 }
 @media (max-width: 560px){
+  .ways{grid-template-columns:1fr}
   .who-grid,.checks{grid-template-columns:1fr}
   .reach > section{padding:var(--s5) var(--s4)}
   .flow,.track2{grid-template-columns:1fr}
@@ -2025,13 +2045,13 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
         </form>
       </div>
     </div>
-    <div class="section-head"><span class="eyebrow">Open to</span><h2>Ways to work together</h2></div>
-    <div class="open-grid">
-      <div class="card"><b>Research collaboration</b><p>Graph learning, spatiotemporal models, trustworthy and medical AI.</p></div>
-      <div class="card"><b>Academic roles</b><p>Lecturer and postdoctoral positions in AI, data science and computing.</p></div>
-      <div class="card"><b>Supervision</b><p>Co-supervision and mentoring of HDR and master's students.</p></div>
-      <div class="card"><b>Peer review</b><p>Reviewing and editorial roles in related journals.</p></div>
-      <div class="card"><b>Talks</b><p>Seminars, workshops and keynotes.</p></div>
+    <div class="section-head"><span class="eyebrow">Open to</span><h2>Ways to Work Together</h2><p class="lede">Choose what you have in mind and the message form above will be set up for it.</p></div>
+    <div class="ways">
+      <article class="way"><span class="way-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5" cy="6" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="12" cy="12" r="2.5"/><circle cx="5" cy="18" r="2"/><circle cx="19" cy="18" r="2"/><path d="m6.6 7.2 3.5 3.3M17.4 7.2l-3.5 3.3M6.6 16.8l3.5-3.3M17.4 16.8l-3.5-3.3"/></svg></span><h3>Research collaboration</h3><p>Joint papers, grants and projects in graph learning, spatiotemporal models, trustworthy and medical AI.</p><div class="outputs"><span class="chip">Graph learning</span><span class="chip">Medical AI</span></div><button class="btn small ghost way-go" data-topic="Research collaboration">Get in touch →</button></article>
+      <article class="way"><span class="way-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-5 9 5"/><path d="M5 10v8M9.5 10v8M14.5 10v8M19 10v8M3 20h18"/></svg></span><h3>Academic roles</h3><p>Lecturer and postdoctoral positions in AI, data science and computing.</p><div class="outputs"><span class="chip">Lecturer</span><span class="chip">Postdoc</span></div><button class="btn small ghost way-go" data-topic="Academic position">Get in touch →</button></article>
+      <article class="way"><span class="way-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="7" r="3"/><circle cx="17" cy="8" r="2.5"/><path d="M2 20a6 6 0 0 1 12 0M14 20a4.5 4.5 0 0 1 8 0"/></svg></span><h3>Supervision</h3><p>Co-supervision and mentoring of HDR and master's students.</p><div class="outputs"><span class="chip">HDR</span><span class="chip">Master's</span></div><button class="btn small ghost way-go" data-topic="Student supervision">Get in touch →</button></article>
+      <article class="way"><span class="way-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="m9 15 2 2 4-4"/></svg></span><h3>Peer review</h3><p>Reviewing and editorial roles in journals on AI, graph learning and health informatics.</p><div class="outputs"><span class="chip">100+ reviews</span></div><button class="btn small ghost way-go" data-topic="Peer review or editorial">Get in touch →</button></article>
+      <article class="way"><span class="way-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3M8 21h8"/></svg></span><h3>Talks</h3><p>Seminars, workshops and keynotes on AI, research methods and data for development.</p><div class="outputs"><span class="chip">Seminars</span><span class="chip">Keynotes</span></div><button class="btn small ghost way-go" data-topic="Speaking or seminar invitation">Get in touch →</button></article>
     </div>
   </section>
 
@@ -2426,6 +2446,8 @@ $("#courseSeg").addEventListener("click", e=>{ const b=e.target.closest("button"
   $$("#teaching-courses .cgroup").forEach(g=>{ let n=0; g.querySelectorAll("li").forEach(li=>{ const show=v==="all"||li.dataset.inst===v; li.hidden=!show; if(show) n++; }); g.hidden=n===0; g.querySelector(".cg-n").textContent=n; }); });
 /* Track record filter */
 $("#trSeg").addEventListener("click", e=>{ const b=e.target.closest("button"); if(!b) return; $$("#trSeg button").forEach(x=>x.setAttribute("aria-pressed",String(x===b))); $$("#trGrid .tr").forEach(c=>c.hidden=!(b.dataset.cat==="all"||c.dataset.cat===b.dataset.cat)); });
+/* Ways to work together -> preset message topic */
+document.addEventListener("click", e=>{ const b=e.target.closest(".way-go"); if(!b) return; const sel=$("#m-topic"); sel.value=b.dataset.topic; const form=$("#msgForm"); const panel=form.closest(".panel")||form; panel.scrollIntoView({behavior:reduced?"auto":"smooth",block:"start"}); panel.classList.remove("msg-flash"); void panel.offsetWidth; panel.classList.add("msg-flash"); setTimeout(()=>{ try{ $("#m-name").focus({preventScroll:true}); }catch(_){} },500); toast("Topic set: "+b.dataset.topic); });
 /* Cite dialog */
 let citeP = null, citeFmt = "apa";
 function citeString(p, fmt){
