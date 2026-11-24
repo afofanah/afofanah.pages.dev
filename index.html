@@ -2290,6 +2290,27 @@ function authorsHTML(p){
 const REPOS = [{"name": "Nexus-SIGN", "cat": "health", "desc": "Leakage-free label propagation for few-label heterogeneous graph regression. Turns four field surveys from Port Loko District, Sierra Leone, into a health-systems graph and predicts the readiness of every facility.", "tags": ["Python", "Graph learning", "Health systems"], "link": "cur:Health-facility readiness"}, {"name": "RIG-Net", "cat": "health", "desc": "Renewal–importation graph network for sub-national Ebola forecasting, benchmarked against 16 published models on Guinea, Liberia, Sierra Leone and DR Congo data.", "tags": ["Python", "PyTorch", "Epidemiology"], "link": "cur:RIG-Net-GI"}, {"name": "TRIAD", "cat": "health", "desc": "Repository for TRIAD's code and the Port Loko multiplex evidence graph dataset: facilities, providers, informal vendors and key informants.", "tags": ["Dataset", "Health systems"], "link": "cur:TRIAD"}, {"name": "DeepEVDMob", "cat": "health", "desc": "DeepEVD: graph convolution and LSTM networks for spatio-temporal Ebola forecasting, predicting case numbers, reproduction rates and spatial risk.", "tags": ["Python", "PyTorch", "Epidemiology"], "link": "J12"}, {"name": "GANT-GNN", "cat": "graph", "desc": "Thermodynamic-guided graph anomaly detection with synthetic feature injection for imbalanced node classification.", "tags": ["Python", "PyTorch Geometric"], "link": "J1"}, {"name": "CL3AN-GNN", "cat": "graph", "desc": "Three-stage curriculum learning with class-aware normalisation, prototypical contrastive learning and boundary-aware margins for imbalanced nodes.", "tags": ["Python", "PyTorch Geometric"], "link": "J2"}, {"name": "CL3E-GNN", "cat": "graph", "desc": "Engage, Enact and Embed curriculum phases with dual GCN+GAT aggregation, importance sampling and memory-augmented reinforcement learning.", "tags": ["Python", "PyTorch Geometric"], "link": "J3"}, {"name": "PIMPC-GNN", "cat": "graph", "desc": "Physics-informed heat diffusion, phase desynchronisation and spectral modules with a severity-aware loss for imbalanced node classification.", "tags": ["Python", "PyTorch"], "link": "J4"}, {"name": "GATE-GNN", "cat": "graph", "desc": "Graph ensemble weight attention with transfer learning for imbalanced graph datasets.", "tags": ["Python", "Jupyter"], "link": "J15"}, {"name": "EATSA-GNN", "cat": "graph", "desc": "Edge-aware two-stage attention with a teacher–student mechanism for graph node classification.", "tags": ["Python", "Jupyter"], "link": "J11"}, {"name": "MCPST", "cat": "traffic", "desc": "Physics-informed multi-phase consensus (thermodynamic diffusion, Kuramoto synchronisation, spectral embedding) for few-shot cross-city traffic forecasting.", "tags": ["Python", "PyTorch", "Few-shot"], "link": "J5"}, {"name": "ST_FSFusion", "cat": "traffic", "desc": "Meta cross-domain fusion with cross-city knowledge transfer; adapts to a new city with as little as three days of data.", "tags": ["Python", "PyTorch", "Meta-learning"], "link": "J6"}, {"name": "MAST-Net", "cat": "traffic", "desc": "Manifold-aware spatio-temporal network combining asymmetric graph diffusion, frequency-domain temporal mixing and manifold-preserving augmentation.", "tags": ["Python", "PyTorch"], "link": "J7"}, {"name": "WaveFSL", "cat": "traffic", "desc": "Wave interference-based meta-learning that models traffic as combined wave patterns for few-shot forecasting.", "tags": ["Python", "PyTorch", "Meta-learning"], "link": "C1"}, {"name": "CHAMFormer", "cat": "traffic", "desc": "Dual heterogeneous coupling and multivariate feature-aware learning network for traffic flow prediction, with its datasets.", "tags": ["Python", "Transformer"], "link": "J10"}, {"name": "CIWI-CKT", "cat": "traffic", "desc": "Chaos-informed wave interference feature fusion with cross-city knowledge transfer, including analysis and figure scripts.", "tags": ["Python", "Chaos theory"], "link": "R2"}, {"name": "Ring-Round-Traffic-Flow-Data", "cat": "data", "desc": "Five-minute aggregated vehicle flows and travel times between road frames, released with the STAF traffic forecasting paper.", "tags": ["Dataset", "CSV", "Traffic"], "link": ""}, {"name": "NU-Masters-Classes", "cat": "teach", "desc": "Master's-level teaching materials: pattern recognition lecture notes and notebook (CSD622) and advanced database with MS SQL (CSD624).", "tags": ["Teaching", "Jupyter", "SQL"], "link": ""}, {"name": "University-Database-Design", "cat": "teach", "desc": "SQL Server database for university management: 20 linked tables, 50 queries, stored procedures and security configuration.", "tags": ["SQL Server", "Database design"], "link": ""}, {"name": "Data-Structure-and-Algorithms", "cat": "teach", "desc": "Sorting algorithm implementations for teaching data structures and algorithms.", "tags": ["Algorithms", "Teaching"], "link": ""}, {"name": "Time-Complexity-Analysis", "cat": "teach", "desc": "Time complexity analysis of algorithms in C++.", "tags": ["C++", "Algorithms"], "link": ""}, {"name": "OOP-Techniques-and-Implementations", "cat": "teach", "desc": "Object-oriented programming concepts with worked implementations.", "tags": ["OOP", "Teaching"], "link": ""}, {"name": "Object-Recognition-Project", "cat": "teach", "desc": "Object recognition project built with PyTorch.", "tags": ["PyTorch", "Computer vision"], "link": ""}, {"name": "FAKE_Store_App", "cat": "teach", "desc": "A demo online-store mobile app written in JavaScript with React Native.", "tags": ["JavaScript", "React Native"], "link": ""}];
 const REPO_OF = {}; REPOS.forEach(r=>{ if(r.link && !r.link.startsWith("cur:")) REPO_OF[r.link]=r.name; });
 const BUY={B1:"https://www.amazon.com.au/dp/B0CZ8S4TPD",B2:"https://www.amazon.com.au/dp/B0BR288KQN",B3:"https://www.amazon.com.au/dp/6204727109"};
+/* Researcher face turned three-quarters toward what he is studying */
+function drawTurnedFace(ctx,lx,ly,blink,wow){
+  const t=Math.max(-1,Math.min(1,lx))*0.85, F=t*5, sgn=t>=0?1:-1, at=Math.abs(t);
+  ctx.rotate(t*0.08);
+  ctx.fillStyle="#9a5f34"; ctx.beginPath(); ctx.ellipse(0,0,23,27,0,0,6.283); ctx.fill();
+  if(at>0.3){ ctx.beginPath(); ctx.arc(-sgn*22,2,5,0,6.283); ctx.fill(); } else { ctx.beginPath(); ctx.arc(-23,2,5,0,6.283); ctx.arc(23,2,5,0,6.283); ctx.fill(); }
+  ctx.fillStyle="#1d1410"; ctx.beginPath(); ctx.ellipse(-F*0.35,-16,24,15,0,Math.PI,0); ctx.fill();
+  for(let k=-18;k<=18;k+=6){ ctx.beginPath(); ctx.arc(k-F*0.35,-22,6,0,6.283); ctx.fill(); }
+  const eyes=[-9,9].map(x=>{ const far=(x<0&&t>0)||(x>0&&t<0); const w=6*(far?1-0.38*at:1); return {x:x*(1-0.15*at)+F, w}; });
+  eyes.forEach(e=>{ ctx.fillStyle="#fff"; ctx.beginPath(); ctx.ellipse(e.x,0,e.w,5.5*blink,0,0,6.283); ctx.fill();
+    if(blink>.5){ ctx.fillStyle="#1d1410"; ctx.beginPath(); ctx.arc(e.x+t*Math.min(2.2,e.w-2.6),Math.max(-2,Math.min(2,ly*2)),2.6,0,6.283); ctx.fill(); } });
+  ctx.strokeStyle="#1d1410"; ctx.lineWidth=2; ctx.beginPath();
+  eyes.forEach(e=>ctx.rect(e.x-e.w-1.5,-7,(e.w+1.5)*2,13));
+  ctx.moveTo(eyes[0].x+eyes[0].w+1.5,-2); ctx.lineTo(eyes[1].x-eyes[1].w-1.5,-2); ctx.stroke();
+  ctx.strokeStyle="rgba(29,20,16,.7)"; ctx.lineWidth=2; ctx.beginPath(); ctx.moveTo(F*1.1,2); ctx.quadraticCurveTo(F*1.1+sgn*4,8,F*1.1,9); ctx.stroke();
+  const by=wow?-14:-11; ctx.strokeStyle="#1d1410"; ctx.lineWidth=2.4; ctx.beginPath();
+  ctx.moveTo(eyes[0].x-6,by); ctx.lineTo(eyes[0].x+5,by-(wow?3:1)); ctx.moveTo(eyes[1].x-5,by-(wow?3:1)); ctx.lineTo(eyes[1].x+6,by); ctx.stroke();
+  ctx.strokeStyle="rgba(29,20,16,.55)"; ctx.lineWidth=3; ctx.beginPath(); ctx.arc(F*0.8,10,13,.25*Math.PI,.75*Math.PI); ctx.stroke();
+  if(wow){ ctx.fillStyle="#3a1d12"; ctx.beginPath(); ctx.ellipse(F*0.9,14,4,5,0,0,6.283); ctx.fill(); }
+  else { ctx.strokeStyle="#3a1d12"; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(F*0.9,9,6,.2*Math.PI,.8*Math.PI); ctx.stroke(); }
+}
 /* ---------- Router ---------- */
 const VIEWS = ["about","cv","research","talks","teaching","projects","hobbies","crid-sl","contact"];
 const ALIAS = {home:["about"], biography:["about","biography"], publications:["research","pubs"], experience:["cv"], inquiry:["crid-sl","inquiry"]};
@@ -2784,22 +2805,9 @@ $("#projSeg").addEventListener("click", e=>{ const b=e.target.closest("button");
     ctx.fillStyle="#9a5f34"; ctx.beginPath(); ctx.arc(ex+Math.cos(ang)*6,ey+Math.sin(ang)*6,6.5,0,6.283); ctx.fill();
     if(surprised){ ctx.strokeStyle="#9a5f34"; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(ex+Math.cos(ang)*10,ey+Math.sin(ang)*10); ctx.lineTo(ex+Math.cos(ang)*20,ey+Math.sin(ang)*20); ctx.stroke(); }
     // head (tilts toward what he is watching)
-    ctx.save(); ctx.translate(0,-126); ctx.rotate(clamp(lx*.18,-.2,.2));
-    ctx.fillStyle="#9a5f34"; ctx.beginPath(); ctx.ellipse(0,0,23,27,0,0,6.283); ctx.fill();
-    ctx.beginPath(); ctx.arc(-23,2,5,0,6.283); ctx.arc(23,2,5,0,6.283); ctx.fill();
-    ctx.fillStyle="#1d1410"; ctx.beginPath(); ctx.ellipse(0,-16,24,15,0,Math.PI,0); ctx.fill();
-    for(let k=-18;k<=18;k+=6){ ctx.beginPath(); ctx.arc(k,-22,6,0,6.283); ctx.fill(); }
-    // eyes with blink + pupils that track the lens
+    ctx.save(); ctx.translate(0,-126);
     const blink = (now>blinkAt && now<blinkAt+130) ? .15 : 1; if(now>blinkAt+130 && Math.random()<.006) blinkAt=now;
-    [-9,9].forEach(ex2=>{ ctx.fillStyle="#fff"; ctx.beginPath(); ctx.ellipse(ex2,0,6,5.5*blink,0,0,6.283); ctx.fill();
-      if(blink>.5){ ctx.fillStyle="#1d1410"; ctx.beginPath(); ctx.arc(ex2+lx*2.6,ly*2.4,2.6,0,6.283); ctx.fill(); } });
-    // glasses
-    ctx.strokeStyle="#1d1410"; ctx.lineWidth=2; ctx.beginPath(); ctx.rect(-17,-7,15,13); ctx.rect(2,-7,15,13); ctx.moveTo(-2,-2); ctx.lineTo(2,-2); ctx.stroke();
-    // brows
-    const by=surprised?-14:-11; ctx.lineWidth=2.4; ctx.beginPath(); ctx.moveTo(-15,by); ctx.lineTo(-4,by-(surprised?3:1)); ctx.moveTo(4,by-(surprised?3:1)); ctx.lineTo(15,by); ctx.stroke();
-    // beard line + mouth
-    ctx.strokeStyle="rgba(29,20,16,.55)"; ctx.lineWidth=3; ctx.beginPath(); ctx.arc(0,10,13,.25*Math.PI,.75*Math.PI); ctx.stroke();
-    ctx.fillStyle="#3a1d12"; if(surprised){ ctx.beginPath(); ctx.ellipse(0,14,4,5,0,0,6.283); ctx.fill(); } else { ctx.strokeStyle="#3a1d12"; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(0,9,6,.2*Math.PI,.8*Math.PI); ctx.stroke(); }
+    drawTurnedFace(ctx,lx,ly,blink,surprised);
     ctx.restore();
     ctx.restore();
     // dotted line of sight from his eyes to the lens
@@ -3011,15 +3019,9 @@ $("#projSeg").addEventListener("click", e=>{ const b=e.target.closest("button");
     ctx.strokeStyle="#e4e9f6"; ctx.beginPath(); ctx.moveTo(30,-82); ctx.lineTo(ex,ey); ctx.stroke();
     ctx.fillStyle="#9a5f34"; ctx.beginPath(); ctx.arc(ex+Math.cos(ang)*6,ey+Math.sin(ang)*6,6.5,0,6.283); ctx.fill();
     if(pointing){ ctx.strokeStyle="#9a5f34"; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(ex+Math.cos(ang)*10,ey+Math.sin(ang)*10); ctx.lineTo(ex+Math.cos(ang)*20,ey+Math.sin(ang)*20); ctx.stroke(); }
-    ctx.save(); ctx.translate(0,-126); ctx.rotate(clamp(lx*.18,-.2,.2));
-    ctx.fillStyle="#9a5f34"; ctx.beginPath(); ctx.ellipse(0,0,23,27,0,0,6.283); ctx.fill(); ctx.beginPath(); ctx.arc(-23,2,5,0,6.283); ctx.arc(23,2,5,0,6.283); ctx.fill();
-    ctx.fillStyle="#1d1410"; ctx.beginPath(); ctx.ellipse(0,-16,24,15,0,Math.PI,0); ctx.fill(); for(let k=-18;k<=18;k+=6){ ctx.beginPath(); ctx.arc(k,-22,6,0,6.283); ctx.fill(); }
+    ctx.save(); ctx.translate(0,-126);
     const blink=(now>blinkAt&&now<blinkAt+130)?.15:1; if(now>blinkAt+130&&Math.random()<.006) blinkAt=now;
-    [-9,9].forEach(e2=>{ ctx.fillStyle="#fff"; ctx.beginPath(); ctx.ellipse(e2,0,6,5.5*blink,0,0,6.283); ctx.fill(); if(blink>.5){ ctx.fillStyle="#1d1410"; ctx.beginPath(); ctx.arc(e2+lx*2.6,ly*2.4,2.6,0,6.283); ctx.fill(); } });
-    ctx.strokeStyle="#1d1410"; ctx.lineWidth=2; ctx.beginPath(); ctx.rect(-17,-7,15,13); ctx.rect(2,-7,15,13); ctx.moveTo(-2,-2); ctx.lineTo(2,-2); ctx.stroke();
-    const by=wow?-14:-11; ctx.lineWidth=2.4; ctx.beginPath(); ctx.moveTo(-15,by); ctx.lineTo(-4,by-(wow?3:1)); ctx.moveTo(4,by-(wow?3:1)); ctx.lineTo(15,by); ctx.stroke();
-    ctx.strokeStyle="rgba(29,20,16,.55)"; ctx.lineWidth=3; ctx.beginPath(); ctx.arc(0,10,13,.25*Math.PI,.75*Math.PI); ctx.stroke();
-    if(wow){ ctx.fillStyle="#3a1d12"; ctx.beginPath(); ctx.ellipse(0,14,4,5,0,0,6.283); ctx.fill(); } else { ctx.strokeStyle="#3a1d12"; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(0,9,6,.2*Math.PI,.8*Math.PI); ctx.stroke(); }
+    drawTurnedFace(ctx,lx,ly,blink,wow);
     ctx.restore(); ctx.restore();
     ctx.setLineDash([2,6]); ctx.strokeStyle="rgba(240,178,62,.4)"; ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(ox+lx*10*s,oy-126*s); ctx.lineTo(look.x,look.y); ctx.stroke(); ctx.setLineDash([]);
     const TXT=["Rush hour is building…","Congestion spreads along the roads.","Which past moments matter most?", wow?"Forecast checked against reality!":"Forecasting the next 30 minutes…"];
@@ -3200,15 +3202,9 @@ $("#projSeg").addEventListener("click", e=>{ const b=e.target.closest("button");
     ctx.strokeStyle="#e4e9f6"; ctx.beginPath(); ctx.moveTo(30,-82); ctx.lineTo(ex,ey); ctx.stroke();
     ctx.fillStyle="#9a5f34"; ctx.beginPath(); ctx.arc(ex+Math.cos(ang)*6,ey+Math.sin(ang)*6,6.5,0,6.283); ctx.fill();
     if(pointing){ ctx.strokeStyle="#9a5f34"; ctx.lineWidth=4; ctx.beginPath(); ctx.moveTo(ex+Math.cos(ang)*10,ey+Math.sin(ang)*10); ctx.lineTo(ex+Math.cos(ang)*20,ey+Math.sin(ang)*20); ctx.stroke(); }
-    ctx.save(); ctx.translate(0,-126); ctx.rotate(clamp(lx*.18,-.2,.2));
-    ctx.fillStyle="#9a5f34"; ctx.beginPath(); ctx.ellipse(0,0,23,27,0,0,6.283); ctx.fill(); ctx.beginPath(); ctx.arc(-23,2,5,0,6.283); ctx.arc(23,2,5,0,6.283); ctx.fill();
-    ctx.fillStyle="#1d1410"; ctx.beginPath(); ctx.ellipse(0,-16,24,15,0,Math.PI,0); ctx.fill(); for(let k=-18;k<=18;k+=6){ ctx.beginPath(); ctx.arc(k,-22,6,0,6.283); ctx.fill(); }
+    ctx.save(); ctx.translate(0,-126);
     const blink=(now>blinkAt&&now<blinkAt+130)?.15:1; if(now>blinkAt+130&&Math.random()<.006) blinkAt=now;
-    [-9,9].forEach(e2=>{ ctx.fillStyle="#fff"; ctx.beginPath(); ctx.ellipse(e2,0,6,5.5*blink,0,0,6.283); ctx.fill(); if(blink>.5){ ctx.fillStyle="#1d1410"; ctx.beginPath(); ctx.arc(e2+lx*2.6,ly*2.4,2.6,0,6.283); ctx.fill(); } });
-    ctx.strokeStyle="#1d1410"; ctx.lineWidth=2; ctx.beginPath(); ctx.rect(-17,-7,15,13); ctx.rect(2,-7,15,13); ctx.moveTo(-2,-2); ctx.lineTo(2,-2); ctx.stroke();
-    const by=wow?-14:-11; ctx.lineWidth=2.4; ctx.beginPath(); ctx.moveTo(-15,by); ctx.lineTo(-4,by-(wow?3:1)); ctx.moveTo(4,by-(wow?3:1)); ctx.lineTo(15,by); ctx.stroke();
-    ctx.strokeStyle="rgba(29,20,16,.55)"; ctx.lineWidth=3; ctx.beginPath(); ctx.arc(0,10,13,.25*Math.PI,.75*Math.PI); ctx.stroke();
-    if(wow){ ctx.fillStyle="#3a1d12"; ctx.beginPath(); ctx.ellipse(0,14,4,5,0,0,6.283); ctx.fill(); } else { ctx.strokeStyle="#3a1d12"; ctx.lineWidth=2; ctx.beginPath(); ctx.arc(0,9,6,.2*Math.PI,.8*Math.PI); ctx.stroke(); }
+    drawTurnedFace(ctx,lx,ly,blink,wow);
     ctx.restore(); ctx.restore();
     ctx.setLineDash([2,6]); ctx.strokeStyle="rgba(240,178,62,.4)"; ctx.lineWidth=1.5; ctx.beginPath(); ctx.moveTo(ox+lx*10*s,oy-126*s); ctx.lineTo(look.x,look.y); ctx.stroke(); ctx.setLineDash([]);
     const TXT=["Two scans, two kinds of information.","Fusing anatomy with function…", ph.u>.95?"There's the region of interest!":"The network is outlining it…", ph.u>.75?"A report the clinician can trust!":"Adding the patient's data…"];
