@@ -819,6 +819,37 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
 .assess li{display:flex;align-items:center;gap:8px;font-size:.92rem;font-weight:500;padding:10px 12px;border-radius:8px;background:var(--forest-soft)}
 .assess svg{width:18px;height:18px;color:var(--forest);flex:none}
 
+
+/* Service areas v2 */
+.svc-head{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--s5);flex-wrap:wrap}
+.svc-head > div:first-child{display:flex;flex-direction:column;gap:var(--s3);flex:1;min-width:300px}
+.svc-head .lede{max-width:none}
+.svc-cart{display:flex;align-items:center;gap:var(--s3);padding:10px 12px 10px 16px;border:1px dashed var(--line);border-radius:999px;font-size:.88rem;color:var(--muted);transition:all .2s}
+.svc-cart .btn{display:none}
+.svc-cart.has{border-style:solid;border-color:var(--gold-bright);background:#fff8e8;color:var(--navy-2);font-weight:600}
+.svc-cart.has .btn{display:inline-flex}
+:root[data-theme="dark"] .svc-cart.has{background:#2e2610;color:#f3d48c}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s4)}
+.svc2{position:relative;display:flex;flex-direction:column;gap:var(--s2);border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:var(--s5);overflow:hidden;transition:transform .2s,box-shadow .2s,border-color .2s}
+.svc2::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--navy-1),var(--gold-bright))}
+.svc2:hover{transform:translateY(-3px);box-shadow:0 18px 36px -24px rgba(11,31,99,.5);border-color:var(--gold-bright)}
+.svc2.picked{border-color:var(--gold-bright);box-shadow:0 0 0 2px var(--gold-bright) inset}
+.s2-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:var(--s2)}
+.s2-ico{width:50px;height:50px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--navy-1),var(--navy-2));color:var(--gold-bright)}
+.s2-ico svg{width:26px;height:26px}
+.s2-num{font-family:var(--font-display);font-size:2.4rem;line-height:1;font-weight:600;color:var(--line)}
+.svc2 h3{font-size:1.2rem;cursor:pointer}
+.svc2 h3:hover{color:var(--cobalt)}
+.s2-short{font-size:.92rem;color:var(--muted)}
+.s2-list{list-style:none;margin:var(--s2) 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.s2-list li{position:relative;padding-left:22px;font-size:.88rem}
+.s2-list li::before{content:"";position:absolute;left:2px;top:.45em;width:10px;height:10px;border-radius:3px;background:var(--gold-bright);transform:rotate(45deg) scale(.8)}
+.s2-basis{margin-top:var(--s2);padding:8px 10px;border-radius:8px;background:var(--forest-soft);font-size:.82rem;color:var(--ink)}
+.s2-basis span{display:block;font-family:var(--font-mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.06em;color:var(--gold);margin-bottom:2px}
+.s2-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:var(--s3)}
+.s2-add[aria-pressed="true"]{background:var(--gold-bright);border-color:var(--gold-bright);color:var(--navy-2)}
+.s2-plus{font-weight:700}
+
 @media (max-width: 960px){
   .shell{grid-template-columns:1fr}
   .rail{position:sticky;top:0;height:auto;z-index:10;flex-direction:row;flex-wrap:wrap;align-items:center;padding:var(--s3) var(--s4);gap:var(--s3);border-right:0;border-bottom:1px solid var(--line)}
@@ -860,6 +891,7 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
   .cv-stats{grid-template-columns:1fr 1fr}
   .bk-grid{grid-template-columns:1fr}
   .peer{grid-template-columns:1fr}
+  .svc-grid{grid-template-columns:1fr 1fr}
   .courses{padding:var(--s5) var(--s4)}
   .nature-grid{grid-template-columns:1fr 1fr}
   .nature-grid button{height:340px}
@@ -890,6 +922,8 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
   .step:nth-child(-n+2){border-bottom:1px solid var(--line)}
 }
 @media (max-width: 560px){
+  .svc-grid{grid-template-columns:1fr}
+  .svc-cart{border-radius:12px;flex-wrap:wrap}
   main{padding-top:var(--s5)}
   .hero-inner,.crid-hero{padding:var(--s6) var(--s4)}
   .stats{grid-template-columns:repeat(2,1fr)}
@@ -1787,10 +1821,13 @@ dialog.lightbox.zoomed .lb img{max-width:none;max-height:none;width:2400px}
       <div><b>2010</b><span>Teaching at university level since</span></div>
     </div>
 
-    <div class="section-head">
-      <span class="eyebrow">Services</span>
-      <h2>Six service areas</h2>
-      <p class="lede">Select a service to see typical deliverables, or add it straight to an inquiry.</p>
+    <div class="svc-head">
+      <div>
+        <span class="eyebrow">Services</span>
+        <h2>Six Service Areas</h2>
+        <p class="lede">From study design to deployed systems: research, AI, data, infrastructure, training and health analytics, each grounded in published work or delivered projects.</p>
+      </div>
+      <div class="svc-cart" id="svcCart" aria-live="polite"><span id="svcCartText">Select services to build your inquiry</span><a class="btn small" href="#inquiry" id="svcCartGo">Go to inquiry →</a></div>
     </div>
     <div class="svc-grid" id="svcGrid"></div>
 
@@ -2337,17 +2374,34 @@ renderTimeline();
 
 /* ---------- CRID-SL services ---------- */
 let curSvc = null;
-$("#svcGrid").innerHTML = SERVICES.map((s,i)=>`<button class="svc" data-svc="${i}"><span class="top"><span class="ico" aria-hidden="true">${ICONS[i]}</span><span class="code">${s.code}</span></span><h3>${esc(s.name)}</h3><p>${esc(s.short)}</p><span class="more">View deliverables →</span></button>`).join("");
+$("#svcGrid").innerHTML = SERVICES.map((s,i)=>`<article class="svc2" data-svc="${i}">
+  <div class="s2-top"><span class="s2-ico" aria-hidden="true">${ICONS[i]}</span><span class="s2-num">0${i+1}</span></div>
+  <h3>${esc(s.name)}</h3>
+  <p class="s2-short">${esc(s.short)}</p>
+  <ul class="s2-list">${s.deliv.slice(0,3).map(d=>`<li>${esc(d)}</li>`).join("")}</ul>
+  <div class="s2-basis"><span>Grounded in</span>${esc(s.basis[0])}</div>
+  <div class="s2-actions"><button class="btn small ghost s2-more" data-svc="${i}">All deliverables</button><button class="btn small s2-add" data-svc="${i}" aria-pressed="false"><span class="s2-plus">+</span> Add to inquiry</button></div>
+</article>`).join("");
 $("#svcChecks").innerHTML = SERVICES.map((s,i)=>`<label><input type="checkbox" id="svc-${i}" value="${esc(s.name)}"> ${esc(s.name)}</label>`).join("");
+function syncSvc(){
+  const on=$$("#svcChecks input").map(c=>c.checked);
+  $$(".s2-add").forEach(b=>{ const i=+b.dataset.svc; b.setAttribute("aria-pressed",String(on[i])); b.innerHTML = on[i] ? '<span class="s2-plus">✓</span> Added' : '<span class="s2-plus">+</span> Add to inquiry'; b.closest(".svc2").classList.toggle("picked",on[i]); });
+  const n=on.filter(Boolean).length; $("#svcCart").classList.toggle("has",n>0);
+  $("#svcCartText").textContent = n ? `${n} service${n>1?"s":""} selected for your inquiry` : "Select services to build your inquiry";
+}
+$("#svcChecks").addEventListener("change", syncSvc);
+$("#svcCartGo").addEventListener("click", e=>{ e.preventDefault(); $("#inquiry").scrollIntoView({behavior:reduced?"auto":"smooth"}); });
 $("#svcGrid").addEventListener("click", e => {
-  const b=e.target.closest(".svc"); if(!b) return; curSvc=+b.dataset.svc; const s=SERVICES[curSvc];
+  const add=e.target.closest(".s2-add");
+  if(add){ const c=$("#svc-"+add.dataset.svc); c.checked=!c.checked; c.dispatchEvent(new Event("input",{bubbles:true})); syncSvc(); toast(c.checked?"Added to your inquiry":"Removed from your inquiry"); return; }
+  const b=e.target.closest(".s2-more, .svc2 h3"); if(!b) return; curSvc=+b.closest(".svc2").dataset.svc; const s=SERVICES[curSvc];
   $("#svcDlgCode").textContent=s.code; $("#svcDlgTitle").textContent=s.name; $("#svcDlgDesc").textContent=s.long;
   $("#svcDlgList").innerHTML=s.deliv.map(d=>`<li>${esc(d)}</li>`).join("");
   $("#svcDlgBasis").innerHTML=s.basis.map(d=>`<span class="chip forest">${esc(d)}</span>`).join("");
   $("#svcDlg").showModal();
 });
 ["#svcClose","#svcClose2"].forEach(s=>$(s).addEventListener("click", ()=>$("#svcDlg").close()));
-$("#svcAdd").addEventListener("click", ()=>{ $("#svc-"+curSvc).checked=true; $("#svcDlg").close(); $("#inquiry").scrollIntoView({behavior:reduced?"auto":"smooth"}); toast("Added to your inquiry"); });
+$("#svcAdd").addEventListener("click", ()=>{ $("#svc-"+curSvc).checked=true; syncSvc(); $("#svcDlg").close(); $("#inquiry").scrollIntoView({behavior:reduced?"auto":"smooth"}); toast("Added to your inquiry"); });
 $$("dialog").forEach(d=>d.addEventListener("click", e=>{ if(e.target===d) d.close(); }));
 
 /* ---------- Inquiry form ---------- */
@@ -2355,7 +2409,8 @@ const form = $("#inqForm");
 const FIELDS = ["f-name","f-email","f-org","f-sector","f-model","f-time","f-msg"];
 try{ const saved = JSON.parse(store("ajf-inq")||"null"); if(saved){ FIELDS.forEach(f=>{ if(saved[f]!=null) $("#"+f).value=saved[f]; }); (saved.svcs||[]).forEach(i=>{ const c=$("#svc-"+i); if(c) c.checked=true; }); } }catch(e){}
 form.addEventListener("input", ()=>{ const o={}; FIELDS.forEach(f=>o[f]=$("#"+f).value); o.svcs=$$("#svcChecks input").map((c,i)=>c.checked?i:null).filter(v=>v!==null); store("ajf-inq", JSON.stringify(o)); });
-form.addEventListener("reset", ()=>{ store("ajf-inq",""); $("#formErr").textContent=""; });
+form.addEventListener("reset", ()=>{ store("ajf-inq",""); $("#formErr").textContent=""; setTimeout(syncSvc,0); });
+syncSvc();
 form.addEventListener("submit", e => {
   e.preventDefault();
   const v = id => $("#"+id).value.trim();
