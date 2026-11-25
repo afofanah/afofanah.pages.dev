@@ -2,7 +2,7 @@
 
 Academic website and home of the Centre for Research, Innovation and Development (CRID-SL).
 
-Live at **https://afofanah.pages.dev**
+Live at **https://afofanah-pages-dev.dmitripeter-fofanah.workers.dev**
 
 ## What's here
 
